@@ -40,15 +40,6 @@ bot.on("ready", () => {
   console.log("bot sudah online");
   
   bot.user.setStatus("dnd");
-
-function voice() {
-let ch = bot.channels.cache.get("877638125462126683");
-
-ch.setName(timezone().tz("Asia/Jakarta").format("⌚️ HH:mm:ss [WIB]") + " ")
-}
-
-setInterval(voice, 1000);
-
 });
 
 bot.snipes = new Map();
@@ -100,6 +91,14 @@ bot.on("ready", () => {
     });
   }
   setInterval(randomStatus, 8000);
+
+  function voice() {
+    let ch = bot.channels.cache.get("877638125462126683");
+    
+    ch.setName(timezone().tz("Asia/Jakarta").format("⌚️ HH:mm:ss [WIB]") + " ")
+    }
+    
+    setInterval(voice, 1000);
 });
 bot.on("message", async message => {
   if (message.author.bot || message.channel.type === "dm") return;
