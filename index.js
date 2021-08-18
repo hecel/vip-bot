@@ -42,7 +42,7 @@ bot.on("ready", () => {
   bot.user.setStatus("dnd");
 
 function voice() {
-let ch = bot.channels.cache.get("877638125462126683");
+let ch = bot.voiceChannel.cache.get("877638125462126683");
 
 ch.setName(timezone().tz("Asia/Jakarta").format("⌚️ HH:mm:ss [WIB]") + " ")
 }
