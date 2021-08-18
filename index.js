@@ -74,7 +74,6 @@ bot.on("ready", () => {
       `🎥| My prefix ${PREFIX}`,
       `🎥| creator: ${developer}`,
       `🎥| invite saya: ${PREFIX}invite`,
-      "🎥| join pls: https://discord.gg/SY4u37zqEt",
       `🎥| menemukan bug? | ${PREFIX}report-bug`,
       "🎥| Rilis Versi 4.2.6",
       `🎥| mau kirim masukan? | ${PREFIX}request`,
