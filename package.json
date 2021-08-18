@@ -4,7 +4,12 @@
   "description": "bot ini beta version",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js",
+    "node .": "node run index.js"
+  },
+  "repository": {
+      "type": "git",
+      "url": "git+https://github.com/hecel/vipbot.git"
   },
   "author": "wulies",
   "license": "ISC",
