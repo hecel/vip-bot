@@ -41,14 +41,14 @@ bot.on("ready", () => {
   
   bot.user.setStatus("dnd");
 
-let timezone = require("moment-timezone");
 function voice() {
 let ch = bot.channels.cache.get("877638125462126683");
+
+ch.setName(timezone().tz("Asia/Jakarta").format("⌚️ HH:mm:ss [WIB]") + " ")
 }
 
-setInterval(ch.setName(timezone().tz("Asia/Jakarta").format("⌚️ HH:mm [WIB]") + " "), 1000);
-
 setInterval(voice, 1000);
+
 });
 
 bot.snipes = new Map();
