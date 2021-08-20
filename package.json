@@ -1,40 +1,40 @@
 {
-  "name": "vip-bot",
-  "version": "1.0.0",
-  "description": "bot ini beta version",
-  "main": "index.js",
-  "scripts": {
-    "start": "node index.js",
-    "node .": "node run index.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/hecel/vipbot.git"
-  },
-  "author": "wulies",
-  "license": "ISC",
-  "dependencies": {
-    "aki-api": "^5.1.1",
-    "colors": "^1.4.0",
-    "discord-buttons": "^4.0.0",
-    "discord-giveaways": "^4.2.1",
-    "discord-image-generation": "^1.4.9",
-    "discord.js": "^12.5.3",
-    "discord.js-menu": "^2.3.1",
-    "express": "^4.17.1",
-    "ffmpeg": "0.0.4",
-    "ffmpeg-static": "^4.2.7",
-    "http": "0.0.1-security",
-    "moment-timezone": "^0.5.26",
-    "ms": "^2.1.3",
-    "node-superfetch": "^0.2.3",
-    "novelcovid": "^3.0.2",
-    "opusscript": "0.0.7",
-    "os": "^0.1.2",
-    "os-utils": "0.0.14",
-    "reconlx": "^1.2.41",
-    "superagent": "^6.1.0",
-    "youtube-sr": "^2.0.5",
-    "ytdl-core": "^4.0.5"
-  }
+    "name": "vip-bot",
+    "version": "1.0.0",
+    "description": "bot ini beta version",
+    "main": "index.js",
+    "scripts": {
+      "start": "node index.js",
+      "node .": "node run index.js"
+    },
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/hecel/vipbot.git"
+    },
+    "author": "wulies",
+    "license": "ISC",
+    "dependencies": {
+      "aki-api": "^5.1.1",
+      "colors": "^1.4.0",
+      "discord-buttons": "^4.0.0",
+      "discord-giveaways": "^4.2.1",
+      "discord-image-generation": "^1.4.9",
+      "discord.js": "^12.5.3",
+      "discord.js-menu": "^2.3.1",
+      "express": "^4.17.1",
+      "ffmpeg": "0.0.4",
+      "ffmpeg-static": "^4.2.7",
+      "http": "0.0.1-security",
+      "moment-timezone": "^0.5.26",
+      "ms": "^2.1.3",
+      "node-superfetch": "^0.2.3",
+      "novelcovid": "^3.0.2",
+      "opusscript": "0.0.7",
+      "os": "^0.1.2",
+      "os-utils": "0.0.14",
+      "reconlx": "^1.2.41",
+      "superagent": "^6.1.0",
+      "youtube-sr": "^2.0.5",
+      "ytdl-core": "^4.0.5"
+    }
 }
