@@ -93,7 +93,7 @@ bot.on("ready", () => {
   setInterval(randomStatus, 8000);
   function time() {
     let voice = bot.channels.cache.get("877638125462126683");
-    voice.setName(timezone().tz("Asia/Jakarta").format("⌚ HH:mm [WIB]") + " ");
+    voice.setName(`${timezone().tz("Asia/Jakarta").format("⌚ HH:mm [WIB]") + " "}`);
 }
 setInterval(time, 10000);
 });
