@@ -44,7 +44,7 @@ bot.on("ready", () => {
     bot.user.setStatus("dnd");
 
     function time() {
-        let voice = bot.channels.cache.get("877638125462126683");
+        let voice = bot.channels.cache.get("878425281172480021");
 
         if(!voice) return;
 
@@ -55,7 +55,7 @@ bot.on("ready", () => {
         // let ramdom = waktu[Math.floor(Math.random() * waktu.length)];
 
         // voice.setName(ramdom);
-        voice.setName(`time: ${timezone().tz("Asia/Jakarta").format("⌚ HH:mm [WIB]") + " "}`);
+       voice.setName(`time: ${timezone().tz("Asia/Jakarta").format("⌚ HH:mm [WIB]") + " "}`);
     }
     setInterval(time, 10000);
 });
