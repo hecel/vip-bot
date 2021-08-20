@@ -44,6 +44,7 @@ bot.on("ready", () => {
     function time() {
         let voice = bot.channels.cache.get("877638125462126683");
         voice.setName(`${timezone().tz("Asia/Jakarta").format("⌚ HH:mm [WIB]") + " "}`);
+        if(!voice) return;
     }
     setInterval(time, 10000);
 });
