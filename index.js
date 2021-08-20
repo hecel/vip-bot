@@ -55,9 +55,9 @@ bot.on("ready", () => {
         // let ramdom = waktu[Math.floor(Math.random() * waktu.length)];
 
         // voice.setName(ramdom);
-        voice.setName(`time: ${timezone().tz("Asia/Jakarta").format("⌚ HH:mm [WIB]") + " "}`)
+        voice.setName(`time: ${timezone().tz("Asia/Jakarta").format("⌚ HH:mm [WIB]") + " "}`);
     }
-    setInterval(time, 8000);
+    setInterval(time, 10000);
 });
 
 bot.snipes = new Map();
