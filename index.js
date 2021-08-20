@@ -13,7 +13,7 @@ const superagent = require("superagent");
 const express = require("express");
 const app = express();
 const http = require("http");
-require("discord-buttons")(bot);
+//require("discord-buttons")(bot);
 
 const { prefix, TOKEN, developer } = require("./util/main");
 
