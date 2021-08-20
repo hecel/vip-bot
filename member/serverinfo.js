@@ -1,5 +1,6 @@
 const { MessageEmbed } = require("discord.js");
 const { Menu } = require("discord.js-menu");
+const { ReactionPages } = require("reconlx");
 
 exports.run = async(bot, message, args) => {
   
