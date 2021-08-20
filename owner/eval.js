@@ -1,7 +1,7 @@
 const { MessageEmbed } = require("discord.js");
 const { post } = require("node-superfetch");
 const Discord = require("discord.js");
-const { MessageButton } = require("discord-buttons");
+//const { MessageButton } = require("discord-buttons");
 const choice = ["🚫", "🗿"];
 let config;
 try {
@@ -63,10 +63,10 @@ module.exports = {
     const {body} = await post("https://bin-clientdev.glitch.me/documents").send(evaled);       
       let hatebin = `https://bin-clientdev.glitch.me/${body.key}.js`;
       
-    let button = new MessageButton()
-    .setStyle("url")
-    .setURL(hatebin) 
-    .setLabel("click here to see the link");
+    // let button = new MessageButton()
+    // .setStyle("url")
+    // .setURL(hatebin) 
+    // .setLabel("click here to see the link");
     
     if(output.length > 1024) {
           
@@ -76,21 +76,21 @@ module.exports = {
       .setDescription(hatebin)
       .addField("Type", `\`\`\`${type}\`\`\``)
       .setFooter(`React to delete message.`);
-    const m = await message.channel.send("click here:", { buttons: button });
+    const m = await message.channel.send(embed);
     for (const chot of choice) {
       await m.react(chot);
     }
     const collect = m.createButtonCollector((button) => {
       button.clicker.user.id === message.author.id, { time: 600000, max: 1000}
     });
-      collect.on("collect", (c) => {
+    //   collect.on("collect", (c) => {
         
-        console.log(c.id);
+    //     console.log(c.id);
         
-        c.defer();
+    //     c.defer();
         
-        collect.stop();
-      });
+    //     collect.stop();
+    //   });
       const filter = (rect, usr) => usr.id !== message.client.user.id;
       var collector = m.createReactionCollector(filter, { time: 600000, max: 1000 });
         collector.on("collect", (reaction, user) => {

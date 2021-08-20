@@ -8,7 +8,7 @@ const DIG = require("discord-image-generation");
 const colors = require("colors");
 const client = new Client();
 const bot = new Client();
-const { MessageButton } = require("discord-buttons");
+//const { MessageButton } = require("discord-buttons");
 const superagent = require("superagent");
 const express = require("express");
 const app = express();
@@ -46,7 +46,7 @@ bot.on("ready", () => {
         voice.setName(`${timezone().tz("Asia/Jakarta").format("⌚ HH:mm [WIB]") + " "}`);
         if(!voice) return;
     }
-    setInterval(time, 8000);
+    setInterval(time, 10000);
 });
 
 bot.snipes = new Map();
@@ -142,43 +142,43 @@ bot.on("message", async message => {
     emoji2 = "👎",
     emoji3 = "🚫";
 
-  if(command === "tes") {
+//   if(command === "tes") {
     
-    const button = new MessageButton()
-    .setStyle("green")
-    .setID("1")
-    .setLabel("ENABLE");
+//     const button = new MessageButton()
+//     .setStyle("green")
+//     .setID("1")
+//     .setLabel("ENABLE");
       
-    const button2 = new MessageButton()
-    .setStyle("red")
-    .setID("2")
-    .setLabel("DISABLE");
+//     const button2 = new MessageButton()
+//     .setStyle("red")
+//     .setID("2")
+//     .setLabel("DISABLE");
       
-    const m = await message.channel.send("testing", { buttons: button});
+//     const m = await message.channel.send("testing", { buttons: button});
       
-    const collect = m.createButtonCollector((button) => {
-      button.clicker.user.id === message.author.id, { time: 600000, max: 1000 }
-    });
-    collect.on("collect", (c) => {
-      console.log(c.id);
+//     const collect = m.createButtonCollector((button) => {
+//       button.clicker.user.id === message.author.id, { time: 600000, max: 1000 }
+//     });
+//     collect.on("collect", (c) => {
+//       console.log(c.id);
         
-      c.defer();
+//       c.defer();
         
-      if(c.id == "1") {
+//       if(c.id == "1") {
         
-        button.edit("testing button", { buttons: button2 });
+//         button.edit("testing button", { buttons: button2 });
           
-        collect.stop();
-        } else if(c.id == "2") {
+//         collect.stop();
+//         } else if(c.id == "2") {
           
-          c.defer();
+//           c.defer();
           
-          button.edit("testing", { buttons: button });
+//           button.edit("testing", { buttons: button });
           
-          collect.stop();
-        }
-      });
-  }
+//           collect.stop();
+//         }
+//       });
+//   }
   if (command === "setprefix") {
     let staff = message.member.hasPermission(["ADMINISTRATOR"]);
     if (!staff)
