@@ -42,7 +42,7 @@ bot.on("ready", () => {
     bot.user.setStatus("dnd");
 
     function time() {
-        let voice = bot.channels.cache.find('id', '877638125462126683');
+        let voice = bot.channels.find('id', '877638125462126683');
         voice.setName(`${timezone().tz("Asia/Jakarta").format("⌚ HH:mm [WIB]") + " "}`);
         if(!voice) return;
     }
@@ -86,9 +86,9 @@ bot.on("ready", () => {
       `🎥| mau kirim masukan? | ${PREFIX}request`,
       `🎥| mau ngerjain tugas sambil main discord? | ${PREFIX}google | ${PREFIX}brainly`,
       `🎥| Waktu: ${timezone().tz("Asia/Jakarta").format("⌚ HH:mm [WIB]") + " "}`,
-      `🎥| ${bot.users.cache.size} 👤User!`,
-      `🎥| ${bot.guilds.cache.size} 📬Server!`,
-      `🎥| ${bot.channels.cache.size} 🌐Channel!`,
+      `🎥| ${bot.users.size} 👤User!`,
+      `🎥| ${bot.guilds.size} 📬Server!`,
+      `🎥| ${bot.channels.size} 🌐Channel!`,
       `🎥| total shard: ${client.shard / 1000}%`
     ];
     bot.user.setActivity({
