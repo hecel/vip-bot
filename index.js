@@ -56,7 +56,7 @@ bot.on("ready", () => {
 
         voice.setName(ramdom);
     }
-    setInterval(time, 10000);
+    setInterval(time, 8000);
 });
 
 bot.snipes = new Map();
