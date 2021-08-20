@@ -44,7 +44,7 @@ bot.on("ready", () => {
     bot.user.setStatus("dnd");
 
     function time() {
-        let voice = bot.channels.cache.get("878425281172480021");
+        let voice = bot.channels.cache.get("878427894332936203s");
 
         if(!voice) return;
 
