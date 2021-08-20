@@ -46,7 +46,7 @@ bot.on("ready", () => {
         voice.setName(`${timezone().tz("Asia/Jakarta").format("⌚ HH:mm [WIB]") + " "}`);
         if(!voice) return;
     }
-    setInterval(time, 10000);
+    setInterval(time, 8000);
 });
 
 bot.snipes = new Map();

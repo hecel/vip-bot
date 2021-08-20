@@ -7,7 +7,7 @@ exports.run = async(bot, message, args) => {
   const embed1 = new Discord.MessageEmbed()
   .setColor("BLUE")
   .setAuthor(message.author.tag, message.author.displayAvatarURL())
-  .setThumbnail(bot.user.displayAvatarURL({ format: "png", dynamic: true }) + "?size=2048")
+  .setThumbnail(bot.user.displayAvatarURL({ format: "png", dynamic: true })) //+ "?size=2048"
   .setDescription("**__HELP COMMANDS__**")
   .addField(`PREFIX: **__${message.prefix}__**`, true);
   const embed2 = new Discord.MessageEmbed()
