@@ -48,13 +48,14 @@ bot.on("ready", () => {
 
         if(!voice) return;
 
-        let waktu = [
-            "time:",
-            `${timezone().tz("Asia/Jakarta").format("⌚ HH:mm [WIB]") + " "}`
-        ];
-        let ramdom = waktu[Math.floor(Math.random() * waktu.length)];
+        // let waktu = [
+        //     "time:",
+        //     `${timezone().tz("Asia/Jakarta").format("⌚ HH:mm [WIB]") + " "}`
+        // ];
+        // let ramdom = waktu[Math.floor(Math.random() * waktu.length)];
 
-        voice.setName(ramdom);
+        // voice.setName(ramdom);
+        voice.setName(`time: ${timezone().tz("Asia/Jakarta").format("⌚ HH:mm [WIB]") + " "}`)
     }
     setInterval(time, 8000);
 });
