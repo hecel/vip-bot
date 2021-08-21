@@ -95,7 +95,7 @@ bot.on("messageUpdate", async(oldMessage, newMessage) => {
     const embed = new MessageEmbed()
     .setTitle("Ghost ping")
     .setColor("RED")
-    .setDescription(`${message.author} ghost pings: ${oldMessage.mentions.users.first()}`)
+    .setDescription(`${oldMessage.author} ghost pings: ${oldMessage.mentions.users.first()}`)
     .setTimestamp();
     return oldMessage.channel.send(embed);
   }
