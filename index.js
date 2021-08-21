@@ -130,7 +130,7 @@ bot.on("message", async(message) => {
       .setColor("RED")
       .setDescription(`${message.author.tag} ghost pings: ${message.mentions.users.first()}`)
       .setTimestamp();
-      message.channel.send(embed);
+      return message.channel.send(embed);
   }
   
  // bot.commands.get(command) || bot.commands.find(cmd => cmd.aliases && cmd.aliases.includes(command));
