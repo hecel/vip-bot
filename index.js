@@ -48,10 +48,10 @@ bot.on("ready", () => {
         waktu.setName(`${timezone().tz("Asia/Jakarta").format("⌚ HH:mm [WIB]") + " "}`);
 
         let waktu1 = bot.channels.cache.get("878430437884723210");
-        waktu1.setName(`${timezone().tz("Asia/Jakarta").format("⌚ HH:mm [WIB]") + " "}`);
+        waktu1.setName(`${timezone().tz("Asia/Irkutsk").format("⌚ HH:mm [WIB]") + " "}`);
 
         let waktu2 = bot.channels.cache.get("878430913548124270");
-        waktu2.setName(`${timezone().tz("Asia/Jakarta").format("⌚ HH:mm [WIB]") + " "}`);
+        waktu2.setName(`${timezone().tz("Asia/Jayapura").format("⌚ HH:mm [WIB]") + " "}`);
     }
     setInterval(time, 10000);
 });
