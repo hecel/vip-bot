@@ -1,6 +1,6 @@
 const { Client, Util, MessageEmbed, Collection } = require("discord.js");
 const fs = require("fs");
-const { join } = require("path");
+const distube = require("distube");
 const { GiveawaysManager } = require("discord-giveaways");
 const Discord = require("discord.js");
 const timezone = require("moment-timezone");
@@ -155,6 +155,35 @@ bot.on("message", async message => {
   let emoji1 = "👍",
     emoji2 = "👎",
     emoji3 = "🚫";
+
+    // Queue status template
+    const status = (queue) => `Volume: \`${queue.volume}%\` | Filter: \`${queue.filter || "Off"}\` | Loop: \`${queue.repeatMode ? queue.repeatMode == 2 ? "All Queue" : "This Song" : "Off"}\` | Autoplay: \`${queue.autoplay ? "On" : "Off"}\``;
+
+    // DisTube event listeners, more in the documentation page
+    distube
+    .on("playSong", (message, queue, song) => message.channel.send(
+        `Playing \`${song.name}\` - \`${song.formattedDuration}\`\nRequested by: ${song.user.tag}\n${status(queue)}`
+    ))
+    .on("addSong", (message, queue, song) => message.channel.send(
+        `Added ${song.name} - \`${song.formattedDuration}\` to the queue by ${song.user.tag}`
+    ))
+    .on("playList", (message, queue, playlist, song) => message.channel.send(
+        `Play \`${playlist.name}\` playlist (${playlist.songs.length} songs).\nRequested by: ${song.user.tag}\nNow playing \`${song.name}\` - \`${song.formattedDuration}\`\n${status(queue)}`
+    ))
+    .on("addList", (message, queue, playlist) => message.channel.send(
+        `Added \`${playlist.name}\` playlist (${playlist.songs.length} songs) to queue\n${status(queue)}`
+    ))
+    // DisTubeOptions.searchSongs = true
+    .on("searchResult", (message, result) => {
+        let i = 0;
+        message.channel.send(`**Choose an option from below**\n${result.map(song => `**${++i}**. ${song.name} - \`${song.formattedDuration}\``).join("\n")}\n*Enter anything else or wait 60 seconds to cancel*`);
+    })
+    // DisTubeOptions.searchSongs = true
+    .on("searchCancel", (message) => message.channel.send(`Searching canceled`))
+    .on("error", (message, e) => {
+        console.error(e)
+        message.channel.send("An error encountered: " + e);
+    });
 
 //   if(command === "tes") {
     
