@@ -78,6 +78,16 @@ bot.on("messageDelete", function(message, channel) {
     author: message.author,
     image: message.attachments.first() ? message.attachments.first().proxyURL : null
   });
+
+  //ghost pings
+  if(message.mentions.users.first()) {
+    const embed = new MessageEmbed()
+    .setTitle("Ghost ping")
+    .setColor("RED")
+    .setDescription(`${message.author} ghost pings: ${message.mentions.users.first()}`)
+    .setTimestamp();
+    return message.channel.send(embed);
+  }
 });
 
 bot.on("ready", () => {
@@ -122,16 +132,6 @@ bot.on("message", async(message) => {
   let command = message.content.toLowerCase().split(" ")[0];
   command = command.slice(prefix.length);
   message.prefix = prefix;
-
-  //ghost pings
-  if(message.mentions.users.first()) {
-      const embed = new MessageEmbed()
-      .setTitle("Ghost ping")
-      .setColor("RED")
-      .setDescription(`${message.author} ghost pings: ${message.mentions.users.first()}`)
-      .setTimestamp();
-      return message.channel.send(embed);
-  }
   
  // bot.commands.get(command) || bot.commands.find(cmd => cmd.aliases && cmd.aliases.includes(command));
   
