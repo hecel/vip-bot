@@ -24,7 +24,7 @@ module.exports = {
      const { args, flags } = parseQuery(Util);
    const OWNER_ID = config ? config.owner : null;
   try {
-    if(!essage.author.id !== OWNER_ID) return message.channel.send('You Are Not My Developper.').then(m => {
+    if(!message.author.id === OWNER_ID) return message.channel.send('You Are Not My Developper.').then(m => {
       m.delete({ timeout: 4000 });
     });
     

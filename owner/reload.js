@@ -12,7 +12,7 @@ module.exports = {
   run: async(bot, message, args) => {
     
     const owner = config ? config.owner : process.env.owner;
-    if(message.author.id !== owner) return message.channel.send("sorry, you don't my developer.");
+    if(!message.author.id === owner) return message.channel.send("sorry, you don't my developer.");
 
     bot.commands.sweep(() => true);
     glob(`${__dirname}/../**/*.js`, async(err, filePaths) => {
