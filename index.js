@@ -113,7 +113,7 @@ bot.on("guildMemberAdd", member => {
         member.kick({ reason: "This is an alt account" });
     }
 });
-bot.on("message", async message => {
+bot.on("message", async(message) => {
   if (message.author.bot || message.channel.type === "dm") return;
   if (!message.content.startsWith(prefix)) return;
   //sistem args
@@ -122,6 +122,16 @@ bot.on("message", async message => {
   let command = message.content.toLowerCase().split(" ")[0];
   command = command.slice(prefix.length);
   message.prefix = prefix;
+
+  //ghost pings
+  if(message.mentions.users.first()) {
+      const embed = new MessageEmbed()
+      .setTitle("Ghost ping")
+      .setColor("RED")
+      .setDescription(`${message.author.tag} ghost pings: ${message.mentions.users.first()}`)
+      .setTimestamp();
+      message.channel.send(embed);
+  }
   
  // bot.commands.get(command) || bot.commands.find(cmd => cmd.aliases && cmd.aliases.includes(command));
   
