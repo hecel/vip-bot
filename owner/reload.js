@@ -32,8 +32,8 @@ module.exports = {
                     bot.aliases.set(alias, pull.name);
                 });
             }
-            message.channel.send("Relloaded Commands");
         });
+        message.channel.send("Relloaded Commands");
     });
     
     // if(!args[1]) return message.channel.send("please input a category.").then(m => {
