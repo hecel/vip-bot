@@ -1,3 +1,4 @@
+const glob = require("glob");
 let config;
 try {
   config = require("../botconfig/config.json");
