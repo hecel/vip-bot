@@ -44,18 +44,14 @@ bot.on("ready", () => {
     bot.user.setStatus("dnd");
 
     function time() {
-        let voice = bot.channels.cache.get("878427894332936203s");
+        let waktu = bot.channels.cache.get("878427894332936203");
+        waktu.setName(`${timezone().tz("Asia/Jakarta").format("⌚ HH:mm [WIB]") + " "}`);
 
-        if(!voice) return;
+        let waktu1 = bot.channels.cache.get("878430437884723210");
+        waktu1.setName(`${timezone().tz("Asia/Jakarta").format("⌚ HH:mm [WIB]") + " "}`);
 
-        // let waktu = [
-        //     "time:",
-        //     `${timezone().tz("Asia/Jakarta").format("⌚ HH:mm [WIB]") + " "}`
-        // ];
-        // let ramdom = waktu[Math.floor(Math.random() * waktu.length)];
-
-        // voice.setName(ramdom);
-       voice.setName(`${timezone().tz("Asia/Jakarta").format("⌚ HH:mm [WIB]") + " "}`);
+        let waktu2 = bot.channels.cache.get("878430913548124270");
+        waktu2.setName(`${timezone().tz("Asia/Jakarta").format("⌚ HH:mm [WIB]") + " "}`);
     }
     setInterval(time, 10000);
 });
