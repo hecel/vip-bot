@@ -1,5 +1,5 @@
 const Discord = require("discord.js");
-const db = require("quick.db");
+//const db = require("quick.db");
 const discord = require("discord.js");
 const emoji = ["🚫"];
 

@@ -34,7 +34,7 @@ module.exports = {
             }
         });
     });
-    message.channel.send("Relloaded Commands");
+    message.channel.send("Reloaded Commands");
     
     // if(!args[1]) return message.channel.send("please input a category.").then(m => {
     //   m.delete({ timeout: 4000 });
