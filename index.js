@@ -97,7 +97,7 @@ bot.on("messageUpdate", async(oldMessage, newMessage) => {
     .setColor("RED")
     .setDescription(`${message.author} ghost pings: ${message.mentions.users.first()}`)
     .setTimestamp();
-    return message.channel.send(embed);
+    return oldMessage.channel.send(embed);
   }
 });
 
