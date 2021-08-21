@@ -80,17 +80,6 @@ module.exports = {
     for (const chot of choice) {
       await m.react(chot);
     }
-    const collect = m.createButtonCollector((button) => {
-      button.clicker.user.id === message.author.id, { time: 600000, max: 1000}
-    });
-    //   collect.on("collect", (c) => {
-        
-    //     console.log(c.id);
-        
-    //     c.defer();
-        
-    //     collect.stop();
-    //   });
       const filter = (rect, usr) => usr.id !== message.client.user.id;
       var collector = m.createReactionCollector(filter, { time: 600000, max: 1000 });
         collector.on("collect", (reaction, user) => {
