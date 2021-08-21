@@ -36,7 +36,7 @@
     "opusscript": "0.0.7",
     "os": "^0.1.2",
     "os-utils": "0.0.14",
-    "reconlx": "^1.2.41",
+    "reconlx": "^1.0.46",
     "superagent": "^6.1.0",
     "youtube-sr": "^2.0.5",
     "ytdl-core": "^4.0.5"
