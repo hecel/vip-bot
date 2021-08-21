@@ -47,6 +47,6 @@ exports.run = async(bot, message, args) => {
   .setTimestamp()
   .setFooter("Scrip by: BlueWolf#0371\n");
   
-  const pages = [embed1, embed2, embed3, embed4, embed5, embed6, embed7];
+  const pages = [embed1, embed2, embed3, embed4, embed5, embed6, embed7, embed8];
   ReactionPages(message, pages, false);
 }
