@@ -50,7 +50,7 @@ bot.on("ready", () => {
         waktu1.setName(`${timezone().tz("Asia/Irkutsk").format("⌚ HH:mm [WIB]") + " "}`)
         let waktu2 = bot.channels.cache.get("878430913548124270")
         waktu2.setName(`${timezone().tz("Asia/Jayapura").format("⌚ HH:mm [WIB]") + " "}`)
-    };
+    }
     setInterval(time, 8000);
 });
 
