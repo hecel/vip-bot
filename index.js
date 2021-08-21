@@ -89,6 +89,17 @@ bot.on("messageDelete", function(message, channel) {
     return message.channel.send(embed);
   }
 });
+bot.on("messageUpdate", async(oldMessage, newMessage) => {
+      //ghost pings
+  if(message.mentions.users.first()) {
+    const embed = new MessageEmbed()
+    .setTitle("Ghost ping")
+    .setColor("RED")
+    .setDescription(`${message.author} ghost pings: ${message.mentions.users.first()}`)
+    .setTimestamp();
+    return message.channel.send(embed);
+  }
+});
 
 bot.on("ready", () => {
   function randomStatus() {
