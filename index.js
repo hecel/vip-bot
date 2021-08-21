@@ -207,27 +207,27 @@ bot.on("message", async message => {
 //         }
 //       });
 //   }
-  if (command === "setprefix") {
-    let staff = message.member.hasPermission(["ADMINISTRATOR"]);
-    if (!staff)
-      return message.reply("sorry you not have permision **__ADMINISTRATOR__**!").then(m => {
-          m.delete({ timeout: 4000 });
-        });
-    let data = db.get(`prefix.${message.guild.id}`);
+//   if (command === "setprefix") {
+//     let staff = message.member.hasPermission(["ADMINISTRATOR"]);
+//     if (!staff)
+//       return message.reply("sorry you not have permision **__ADMINISTRATOR__**!").then(m => {
+//           m.delete({ timeout: 4000 });
+//         });
+//     let data = db.get(`prefix.${message.guild.id}`);
 
-    let simbol = args.slice(1).join(" ");
-    if (!simbol)
-      return message.channel.send("please input the prefix!").then(m => {
-        m.delete({ timeout: 4000 });
-      });
-    db.set(`prefix.${message.guild.id}`, simbol);
-    message.channel.send(`💡SUCSES! the server prefix has changed to: **${simbol}**\nNote: type **${simbol}default** to changed prefix default`);
-  } else if (command === "default") {
-    db.delete(`prefix.${message.guild.id}`);
-    return message.channel.send("the prefix server has changed to default!").then(m => {
-        m.delete({ timeout: 4000 });
-      });
-  }
+//     let simbol = args.slice(1).join(" ");
+//     if (!simbol)
+//       return message.channel.send("please input the prefix!").then(m => {
+//         m.delete({ timeout: 4000 });
+//       });
+//     db.set(`prefix.${message.guild.id}`, simbol);
+//     message.channel.send(`💡SUCSES! the server prefix has changed to: **${simbol}**\nNote: type **${simbol}default** to changed prefix default`);
+//   } else if (command === "default") {
+//     db.delete(`prefix.${message.guild.id}`);
+//     return message.channel.send("the prefix server has changed to default!").then(m => {
+//         m.delete({ timeout: 4000 });
+//       });
+//   }
   if (command === "verif") {
     await message.delete();
     let id = "783773922058305558";
