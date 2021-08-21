@@ -90,12 +90,12 @@ bot.on("messageDelete", function(message, channel) {
   }
 });
 bot.on("messageUpdate", async(oldMessage, newMessage) => {
-      //ghost pings
-  if(message.mentions.users.first()) {
+  //ghost pings
+  if(oldMessage.mentions.users.first()) {
     const embed = new MessageEmbed()
     .setTitle("Ghost ping")
     .setColor("RED")
-    .setDescription(`${message.author} ghost pings: ${message.mentions.users.first()}`)
+    .setDescription(`${message.author} ghost pings: ${oldMessage.mentions.users.first()}`)
     .setTimestamp();
     return oldMessage.channel.send(embed);
   }
