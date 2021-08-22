@@ -81,14 +81,14 @@ bot.on("messageDelete", function(message, channel) {
 
   //ghost pings
   if(message.mentions.users.first()) {
-    let channel = bot.channels.cache.find(n => n.name === "logs");
+    let channel = bot.channels.cache.get("864049509306335243");
 
     if(!channel) return;
 
     const embed = new MessageEmbed()
     .setTitle("Ghost ping")
     .setColor("RED")
-    .setDescription(`${message.author} ghost pings: ${message.mentions.users.first()}`)
+    .setDescription(`${message.author} ghost pings: ${message.mentions.users.first()}\nmessage ini dari: ${newMessage.guild.name}`)
     .setTimestamp();
     return channel.send(embed);
   }
@@ -96,14 +96,14 @@ bot.on("messageDelete", function(message, channel) {
 bot.on("messageUpdate", async(oldMessage, newMessage) => {
   //ghost pings
   if(oldMessage.mentions.users.first()) {
-    let channel = bot.channels.cache.find(x => x.name === "logs");
+    let channel = bot.channels.cache.get("864049509306335243");
 
     if(!channel) return;
     
     const embed = new MessageEmbed()
     .setTitle("Ghost ping")
     .setColor("RED")
-    .setDescription(`${oldMessage.author} ghost pings: ${oldMessage.mentions.users.first()}`)
+    .setDescription(`${oldMessage.author} ghost pings: ${oldMessage.mentions.users.first()}\nmessage ini dari: ${newMessage.guild.name}`)
     .setTimestamp();
     return channel.send(embed);
   }
