@@ -30,10 +30,10 @@ module.exports = {
             winnerCount: winners,
             hostedBy: message.author.tag,
             messages: {
-                giveaway: ":tada: :tada:**Giveaways Time!**:tada: :tada:",
+                giveaway: "🎉🎉**Giveaways Time!**🎉🎉",
                 giveawayEnded: "**Giveaways Ended**",
                 timeRemaining: "Time Remaining: **{duration}**",
-                inviteToParticipate: "React with :tada: to join giveaways.",
+                inviteToParticipate: "React with 🎉 to join giveaways.",
                 winMessage: "Congrast {winners}, you have won the giveaways",
                 embedFooter: "Giveaways Time!",
                 noWinner: "Could not determine a winner",

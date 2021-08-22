@@ -64,7 +64,7 @@ bot.giveaways = new GiveawaysManager(bot, {
   storage: "./giveaways.json",
   updateCountdownEvery: 5000,
   embedColor: "GOLD",
-  reaction: ":tada:"
+  reaction: "🎉"
 });
 
 //const commandFiles = fs.readdirSync("./commands").filter(file => file.endsWith(".js"));
