@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 const { ReactionPages } = require("reconlx");
-const choice = ["🚫", "👑", "⚜️", "🎮", "🔧", "🎉", "⚖️", "⚙️"];
+const choice = ["🚫", "📣", "👑", "⚜️", "🎮", "🔧", "🎉", "⚖️", "⚙️"];
 
 exports.run = async(bot, message, args) => {
   
@@ -10,7 +10,7 @@ exports.run = async(bot, message, args) => {
   .setThumbnail(bot.user.displayAvatarURL({ format: "png", dynamic: true }) + "?size=2048")
   .setDescription("**__HELP COMMANDS__**")
   .addField(`PREFIX: **__${message.prefix}__**`, true)
-  .addField("**__INFO EMOJI__**", `\`👑: Owner.\n⚜️: Core.\n🎮: Game.\n🔧: Moderator.\n🎉: Giveaway.\n⚖️: Hangman.\``);
+  .addField("**__INFO EMOJI__**", `\`📣: Prefix\n👑: Owner.\n⚜️: Core.\n🎮: Game.\n🔧: Moderator.\n🎉: Giveaway.\n⚖️: Hangman.\``);
 
   const embed2 = new Discord.MessageEmbed()
   .addField("**__DEVELOPER__**", `restart\nreload\nls\neval`)
@@ -56,6 +56,11 @@ exports.run = async(bot, message, args) => {
           case "🚫":
             reaction.users.remove(user).catch(console.error);
             m.delete();
+            break;
+
+          case "📣":
+            reaction.users.remove(user).catch(console.error);
+            m.edit(embed1);
             break;
 
           case "👑":
