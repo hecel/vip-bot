@@ -10,7 +10,7 @@ exports.run = async(bot, message, args) => {
   .setThumbnail(bot.user.displayAvatarURL({ format: "png", dynamic: true }) + "?size=2048")
   .setDescription("**__HELP COMMANDS__**")
   .addField(`PREFIX: **__${message.prefix}__**`, true)
-  .addField("**__INFO EMOJI__**", `\`👑: Owner.\n⚜️: Core.\n🎮: Game.\n🔧: Moderator\n🎉: Giveaway\n⚖️: Hangman\``)
+  .addField("**__INFO EMOJI__**", `\`👑: Owner.\n⚜️: Core.\n🎮: Game.\n🔧: Moderator.\n🎉: Giveaway.\n⚖️: Hangman.\``);
 
   const embed2 = new Discord.MessageEmbed()
   .setTitle("**__DEVELOPER__**")
