@@ -81,23 +81,31 @@ bot.on("messageDelete", function(message, channel) {
 
   //ghost pings
   if(message.mentions.users.first()) {
+    let channel = bot.channels.cache.find(n => n.name === "logs");
+
+    if(!channel) return;
+
     const embed = new MessageEmbed()
     .setTitle("Ghost ping")
     .setColor("RED")
     .setDescription(`${message.author} ghost pings: ${message.mentions.users.first()}`)
     .setTimestamp();
-    return message.channel.send(embed);
+    return channel.send(embed);
   }
 });
 bot.on("messageUpdate", async(oldMessage, newMessage) => {
   //ghost pings
   if(oldMessage.mentions.users.first()) {
+    let channel = bot.channels.cache.find(x => x.name === "logs");
+
+    if(!channel) return;
+    
     const embed = new MessageEmbed()
     .setTitle("Ghost ping")
     .setColor("RED")
     .setDescription(`${oldMessage.author} ghost pings: ${oldMessage.mentions.users.first()}`)
     .setTimestamp();
-    return oldMessage.channel.send(embed);
+    return channel.send(embed);
   }
 });
 
