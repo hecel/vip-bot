@@ -13,37 +13,31 @@ exports.run = async(bot, message, args) => {
   .addField("**__INFO EMOJI__**", `\`👑: Owner.\n⚜️: Core.\n🎮: Game.\n🔧: Moderator.\n🎉: Giveaway.\n⚖️: Hangman.\``);
 
   const embed2 = new Discord.MessageEmbed()
-  .setTitle("**__DEVELOPER__**")
-  .addField(`restart\nreload\nls\neval`, true)
+  .addField("**__DEVELOPER__**", `restart\nreload\nls\neval`)
   .setColor("BLUE");
 
   const embed3 = new Discord.MessageEmbed()
-  .setTitle("**__CORE__**")
-  .addField(`instagram\nsay\nping\navatar\ninvite\nreport-bug\nuserinfo\nmemberinfo\nserverinfo\nsy\nirl\ndiscord\nch\nyt\nnonolive\ngoogle\nbrainly\nmeme\ncovid\nsnipe\nascii\ncalculator\nmath`, true)
+  .addField("**__CORE__**", `instagram\nsay\nping\navatar\ninvite\nreport-bug\nuserinfo\nmemberinfo\nserverinfo\nsy\nirl\ndiscord\nch\nyt\nnonolive\ngoogle\nbrainly\nmeme\ncovid\nsnipe\nmath`)
   .setColor("BLUE");
 
   const embed4 = new Discord.MessageEmbed()
-  .setTitle("**__GAME__**")
-  .addField(`gay\nnsfw\nramal\nputin\nwanted\nrip\npp\nejected\nmeeting`,true)
+  .addField("**__GAME__**", `gay\nnsfw\nramal\nputin\nwanted\nrip\npp\nejected\nmeeting`)
   .setColor("BLUE");
 
   const embed5 = new Discord.MessageEmbed()
-  .setTitle("**__MODERATOR__**")
-  .addField(`kick\nban\nchannel-delete\nservericon\nwarn\nunwarn\nmute\nunmute\nnuke\ncc\ncn\nsetprefix\nsetnick\nslowmode\nlock\nunlock`,true)
+  .addField("**__MODERATOR__**", `kick\nban\nchannel-delete\nservericon\nwarn\nunwarn\nmute\nunmute\nnuke\ncc\ncn\nsetprefix\nsetnick\nslowmode\nlock\nunlock`)
   .setColor("BLUE");
 
   const embed6 = new Discord.MessageEmbed()
-  .setTitle("**__GIVEAWAYS__**")
-  .addField(`gstart\ngend\ngedit\ngdelete\ngreroll`,true)
+  .addField("**__GIVEAWAYS__**", `gstart\ngend\ngedit\ngdelete\ngreroll`)
   .setColor("BLUE");
 
   const embed7 = new Discord.MessageEmbed()
-  .setTitle("**__HANGMAN__**")
-  .addField(`\`hangman\``)
+  .addField("**__HANGMAN__**", `\`hangman\``)
+  .setColor("BLUE");
 
   const embed8 = new Discord.MessageEmbed()
-  .setTitle("**__TOTAL COMMANDS__**")
-  .addField(`\`55 COMMANDS\``, true)
+  .addField("**__TOTAL COMMANDS__**", `\`52 COMMANDS\``)
   .setColor("BLUE")
   .setTimestamp()
   .setFooter("Scrip by: BlueWolf#0371\n");
