@@ -88,7 +88,7 @@ bot.on("messageDelete", function(message, channel) {
     const embed = new MessageEmbed()
     .setTitle("Ghost ping")
     .setColor("RED")
-    .setDescription(`${message.author} ghost pings: ${message.mentions.users.first()}\nmessage ini dari: ${message.guild.name}`)
+    .setDescription(`${message.author} ghost pings: ${message.mentions.users.first()}\nmessage ini dari: ${message.guild}`)
     .setTimestamp();
     return channel.send(embed);
   }
@@ -108,7 +108,7 @@ bot.on("messageUpdate", async(oldMessage, message) => {
     const embed = new MessageEmbed()
     .setTitle("Ghost ping")
     .setColor("RED")
-    .setDescription(`${oldMessage.author} ghost pings: ${oldMessage.mentions.users.first()}\nmessage ini dari: ${oldMessage.guild.name}`)
+    .setDescription(`${oldMessage.author} ghost pings: ${oldMessage.mentions.users.first()}\nmessage ini dari: ${oldMessage.guild}`)
     .setTimestamp();
     return channel.send(embed);
   }
