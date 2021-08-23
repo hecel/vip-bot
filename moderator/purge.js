@@ -6,15 +6,16 @@ module.exports = {
   usage: "clear <jumblah>",
   aliases: ["delete"],
   run: async(message, args) => {
-    let staff = message.member.hasPermission(["ADMINISTRATOR"]);
-    if(!staff) {
-      message.channel.send("kamu tidak ada permission!");
-    } else {
+    if (!message.member.hasPermission(["MANAGE_GUILD", "ADMINISTRATOR"])) {
+        return message.channel.send({embed: {color: "RED", description: "You can't use this command!"}}).then(m => {
+          m.delete({ timeout: 4000});
+        });
+      }
+      let input = args.slice(1).join(" ");
+      let masuk = args.slice(2).join(" ");
+      let ch = message.mentions.channels.first();
+      if(!input) return message.channel.send("Harap masukkan nomor!");
       try {
-        let input = args.slice(1).join(" ");
-        let masuk = args.slice(2).join("+");
-        let ch = message.mentions.channels.first();
-        if(!input) return message.channel.send("Harap masukkan nomor!");
         if(!ch) {
       await message.delete();
       await message.channel.bulkDelete(input)
@@ -42,5 +43,4 @@ module.exports = {
      message.channel.send(embed);
     }
   }
- }
 }
