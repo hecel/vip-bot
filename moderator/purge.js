@@ -6,7 +6,7 @@ module.exports = {
   usage: "clear <jumblah>",
   aliases: ["delete"],
   run: async(message, args) => {
-    let staff = message.members.hasPermission(["ADMINISTRATOR"]);
+    let staff = message.member.hasPermission(["ADMINISTRATOR"]);
     if(!staff) {
       message.channel.send("kamu tidak ada permission!");
     } else {
