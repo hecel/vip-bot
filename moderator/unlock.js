@@ -1,5 +1,5 @@
 module.exports = {
-    name: "lockdown",
+    name: "unlock",
     run: async(bot, message, args) => {
         if(!message.member.hasPermission("MANAGE_CHANNELS")) return message.channel.send("You dont have permissions to usage this command!");
 
