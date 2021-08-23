@@ -14,6 +14,6 @@ module.exports = {
                 return message.channel.send(`I couldn't lock ${channel}`);
             }
         });
-        message.channel.send("Successfully locked all the channel");
+        message.channel.send("Successfully unlocked all the channel");
     }
 }
