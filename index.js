@@ -56,8 +56,7 @@ bot.on("ready", () => {
 
 bot.snipes = new Map();
 bot.edits = new Map();
-bot.commands = new Collection();
-bot.aliases = new Collection();
+bot.commands = new Map();
 bot.hatebin = new Map();
 bot.developers = developer;
 bot.giveaways = new GiveawaysManager(bot, {
@@ -153,7 +152,8 @@ bot.on("message", async(message) => {
   //sistem args
  const args = message.content.split(" ");
   
-  let command = message.content.toLowerCase().split(" ")[0];
+ let cmd = message.content.toLowerCase().split(" ")[0];
+  let command = bot.commands.get(cmd) || bot.commands.find(a => a.aliases && a.aliases.includes(cmd));
   command = command.slice(prefix.length);
   message.prefix = prefix;
   
