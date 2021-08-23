@@ -6,8 +6,8 @@ module.exports = {
         message.guild.channels.cache.forEach(channel => {
             try {
                 channel.updateOverwrite(message.guild.roles.cache.find(e => e.name.toLowerCase().trim() === "@everyone"), {
-                    SEND_MESSAGES: true,
-                    VIEW_CHANNEL: true
+                    SEND_MESSAGES: true
+                   // VIEW_CHANNEL: true
                 });
             } catch (e) {
                 console.log(e);
