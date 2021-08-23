@@ -4,8 +4,8 @@ module.exports = {
   name: 'snipe',
   run: async(bot, message, args) => {
     
- let msg = bot.snipes.get(message.channel.id);
- if(!msg) return message.channel.send({embed: { description: `There's nothing to snipe!`, color: "RED"}}).then(m => {
+ let msg = bot.edits.get(message.channel.id);
+ if(!msg) return message.channel.send({embed: { description: `There's nothing to edit!`, color: "RED"}}).then(m => {
    m.delete({ timeout: 4000 });
  });
     

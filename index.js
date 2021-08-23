@@ -44,12 +44,12 @@ bot.on("ready", () => {
     bot.user.setStatus("dnd");
 
     function time() {
-        let waktu = bot.channels.cache.get("878427894332936203")
-        waktu.setName(`${timezone().tz("Asia/Jakarta").format("⌚ HH:mm [WIB]") + " "}`)
-        let waktu1 = bot.channels.cache.get("878430437884723210")
-        waktu1.setName(`${timezone().tz("Asia/Irkutsk").format("⌚ HH:mm [WIB]") + " "}`)
-        let waktu2 = bot.channels.cache.get("878430913548124270")
-        waktu2.setName(`${timezone().tz("Asia/Jayapura").format("⌚ HH:mm [WIB]") + " "}`)
+        let waktu = bot.channels.cache.get("878427894332936203");
+        waktu.setName(`${timezone().tz("Asia/Jakarta").format("⌚ HH:mm [WIB]") + " "}`);
+        let waktu1 = bot.channels.cache.get("878430437884723210");
+        waktu1.setName(`${timezone().tz("Asia/Irkutsk").format("⌚ HH:mm [WIT]") + " "}`);
+        let waktu2 = bot.channels.cache.get("878430913548124270");
+        waktu2.setName(`${timezone().tz("Asia/Jayapura").format("⌚ HH:mm [WITA]") + " "}`);
     }
     setInterval(time, 10000);
 });
@@ -73,10 +73,10 @@ bot.giveaways = new GiveawaysManager(bot, {
   //bot.commands.set(command.name, command);
 //}
 bot.on("messageDelete", function(message, channel) {
-  bot.snipes.set(message.channel.id, {
-    content: message.content,
-    author: message.author,
-    image: message.attachments.first() ? message.attachments.first().proxyURL : null
+    bot.snipes.set(message.channel.id, {
+        content: message.content,
+        author: message.author,
+        image: message.attachments.first() ? message.attachments.first().proxyURL : null;
   });
 
   //ghost pings
@@ -94,6 +94,10 @@ bot.on("messageDelete", function(message, channel) {
   }
 });
 bot.on("messageUpdate", async(oldMessage) => {
+    bot.edits.set(message.channel.id, {
+        content: message.content,
+        author: message.author,
+        image: message.attachments.first() ? message.attachments.first().proxyURL : null;
   //ghost pings
   if(oldMessage.mentions.users.first()) {
     let channel = bot.channels.cache.get("864049509306335243");
