@@ -56,8 +56,7 @@ bot.on("ready", () => {
 
 bot.snipes = new Map();
 bot.edits = new Map();
-bot.commands = new Collection();
-bot.aliases = new Collection();
+bot.commands = new Map();
 bot.hatebin = new Map();
 bot.developers = developer;
 bot.giveaways = new GiveawaysManager(bot, {
