@@ -93,7 +93,7 @@ bot.on("messageDelete", function(message, channel) {
     return channel.send(embed);
   }
 });
-bot.on("messageUpdate", async(oldMessage) => {
+bot.on("messageUpdate", async(oldMessage, message) => {
     bot.edits.set(message.channel.id, {
         content: message.content,
         author: message.author,
