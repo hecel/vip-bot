@@ -153,9 +153,10 @@ bot.on("message", async(message) => {
   //sistem args
  const args = message.content.split(" ");
   
-  let command = message.content.toLowerCase().split(" ")[0];
-  command = command.slice(prefix.length);
-  message.prefix = prefix;
+ let cmd = message.content.toLowerCase().split(" ")[0];
+ let command = bot.commands.get(cmd) || bot.commands.find(a => a.aliases && a.aliases.includes(cmd));
+ command = command.slice(prefix.length);
+ message.prefix = prefix;
   
  // bot.commands.get(command) || bot.commands.find(cmd => cmd.aliases && cmd.aliases.includes(command));
   
