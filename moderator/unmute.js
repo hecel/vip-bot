@@ -10,6 +10,6 @@ module.exports = {
         var role = message.guild.roles.cache.find(r => r.name === "mute");
         if(!role) return message.channel.send(`I can't find the role **mute**`);
         member.roles.remove(role.id);
-        message.channel.send(`Successfully unwarn ${user} with role: **${role}**`);
+        message.channel.send(`Successfully unmute ${user} with role: **${role}**`);
     }
 }
