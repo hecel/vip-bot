@@ -26,14 +26,14 @@ module.exports = {
 
                 const embed = new MessageEmbed()
                 .setAuthor(`current weather for ${current.observationpoint}`)
-                .setThumbnail(current.imgurl)
+                .setThumbnail(current.imageUrl)
                 .setDescription(`**${current.skytext}**`)
                 .addField(`Timezone:`, `UTC ${location.timezone}`, true)
                 .addField(`Degree Type:`, `celcius`, true)
                 .addField(`Temperature:`, `${current.temperature}°`, true)
-                .addField(`Wind:`, `${current.widdisplay}`, true)
+                .addField(`Wind:`, `${current.winddisplay}`, true)
                 .addField(`Feels Like:`, `${current.feelslike}`, true)
-                .addField(`Humidty:`, `${current.humidty}`, true)
+                .addField(`Humidty:`, `${current.humidity}%`, true)
                 .setColor("GREEN")
                 .setTimestamp();
 
