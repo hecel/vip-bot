@@ -13,11 +13,11 @@ module.exports = {
             .setTimestamp();
             if(!args[0]) return message.channel.send(embed);
 
-            const embed = new MessageEmbed()
+            const embed1 = new MessageEmbed()
             .setTitle("Invalid location")
             .setColor("PURPLE")
             .setTimestamp();
-            if(result === undefined || result.length === 0) return message.channel.send(embed);
+            if(result === undefined || result.length === 0) return message.channel.send(embed1);
 
             let current = result[0].current;
             let location = result[0].location;
