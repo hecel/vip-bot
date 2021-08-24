@@ -4,13 +4,12 @@ exports.run = async (bot, message, args) => {
   
   try {
   // You can make a single array to detect the user permissions.
-  if (!message.member.hasPermission(["MANAGE_GUILD", "ADMINISTRATOR"])) {
+  if (!message.member.hasPermission("MANAGE_GUILD", "ADMINISTRATOR")) {
     return message.channel.send({embed: {color: "RED", description: "You can't use this command!"}});
   }
   
   let nick = args.slice(2).join(" ");
-  let masuk = args.slice(1).join(" ");
-  let user = message.mentions.members.first() || bot.users.cache.find(x => x.username === masuk) || bot.users.cache.get(masuk) || message.author;
+  let user = message.mentions.users.first() || message.author;
   
   if (!user) return message.channel.send({embed: {color: "RED", description: "You need to input the user."}}).then(m => {
     m.delete({ timeout:4000 });
