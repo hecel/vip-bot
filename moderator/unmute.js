@@ -1,7 +1,7 @@
 const { MessageEmbed } = require("discord.js");
 
 module.exports = {
-    name: "mute",
+    name: "unmute",
     run: async(bot, message, args) => {
         if(!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send("You don't have permission to usage this commands!");
         const user = message.mentions.users.first();
