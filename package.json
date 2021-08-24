@@ -38,6 +38,7 @@
     "os-utils": "0.0.14",
     "reconlx": "^1.0.46",
     "superagent": "^6.1.0",
+    "weather-js": "^2.0.0",
     "youtube-sr": "^2.0.5",
     "ytdl-core": "^4.0.5"
   }
