@@ -1,7 +1,7 @@
 module.exports = {
     name: "kick",
     run: async(bot, message, args) => {
-        if(!message.member.hasPermission(["KICK_MEMBERS", "BAN_MEMBERS"])) return message.channel.send("You dont have permission to run this command!");
+        if(!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send("You dont have permission to run this command!");
         const member = message.mentions.users.first();
         const memberTarget = message.guild.members.cache.get(member.id);
         let rs = args[2];
