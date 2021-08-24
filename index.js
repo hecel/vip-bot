@@ -67,6 +67,7 @@ bot.giveaways = new GiveawaysManager(bot, {
   embedColor: "GOLD",
   reaction: "🎉"
 });
+const antijoin = new Collection();
 
 //const commandFiles = fs.readdirSync("./commands").filter(file => file.endsWith(".js"));
 //for(const file of commandFiles) {
@@ -130,11 +131,13 @@ bot.on("guildMemberAdd", async(member, message) => {
       .setFooter("script by: BuleWolf#0371\n");
     channel.send(embed).then(member.roles.add(role.id));
 
-    const { antijoin } = require("../../Collection");
+    const { antijoin } = require("./Collection");
     const getCollection = antijoin.get(message.guild.id);
     if(!getCollection) return;
 
-    getCollection.push(member.user);
+    if(!getCollection.includes(member.user)) {
+        getCollection.push(member.user);
+    }
     member.kick({ reason: "antijoin was enabled"});
   });
   bot.on("guildMemberRemove", member => {
