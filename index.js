@@ -114,7 +114,7 @@ bot.on("messageUpdate", async(oldMessage, message) => {
     return channel.send(embed);
   }
 });
-bot.on("guildMemberAdd", member, message => {
+bot.on("guildMemberAdd", async(member, message) => {
     let guild = member.guild;
     let server = guild.name;
     let total = guild.memberCount;
