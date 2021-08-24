@@ -26,7 +26,7 @@ module.exports = {
             message.channel.send("Getting weather info...").then(m => {
 
                 const embed = new MessageEmbed()
-                .setAuthor(`**current weather for ${current.observationpoint}**`)
+                .setAuthor(`current weather for ${current.observationpoint}`)
                 .setThumbnail(current.imgurl)
                 .setDescription(`**${current.skytext}**`)
                 .addField(`Timezone:`, `UTC ${location.timezone}`, true)
