@@ -8,5 +8,6 @@ module.exports = {
         if(!member) return message.channel.send("Please specify a member");
         if(!rs) return message.channel.send("Please specify a reason");
         memberTarget.kick({ reason: rs });
+        message.channel.send(`Successfully kicked ${member}`);
     }
 }
