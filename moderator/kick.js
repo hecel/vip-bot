@@ -7,7 +7,7 @@ module.exports = {
         let rs = args[2];
         if(!member) return message.channel.send("Please specify a member");
         if(!rs) return message.channel.send("Please specify a reason");
-        memberTarget.kick({ reason: rs });
-        message.channel.send(`Successfully kicked ${member}`);
+        memberTarget.kick(rs);
+        message.channel.send(`Successfully kicked ${member} with reason: ${rs}`);
     }
 }
