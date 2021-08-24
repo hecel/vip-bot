@@ -4,7 +4,7 @@ exports.run = async (bot, message, args) => {
   
   try {
   // You can make a single array to detect the user permissions.
-  if (!message.member.hasPermission("MANAGE_GUILD", "ADMINISTRATOR")) {
+  if (!message.member.hasPermission("ADMINISTRATOR")) {
     return message.channel.send({embed: {color: "RED", description: "You can't use this command!"}});
   }
   
