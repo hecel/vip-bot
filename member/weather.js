@@ -4,15 +4,14 @@ const { MessageEmbed } = require("discord.js");
 module.exports = {
     name: "weather",
     run: async(bot, message, args) => {
-        let wea = args.join(" ");
         //if(!wea) return message.channel.send("Please specify a weather");
-        weather.find({ search: wea, degreeType: `C` }, function(error, result) {
+        weather.find({ search: args.join(" "), degreeType: `C` }, function(error, result) {
 
             const embed = new MessageEmbed()
             .setTitle("Please specify a location")
             .setColor("PURPLE")
             .setTimestamp();
-            if(!wea) return message.channel.send(embed);
+            if(!args[0]) return message.channel.send(embed);
 
             const embed = new MessageEmbed()
             .setTitle("Invalid location")
