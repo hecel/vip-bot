@@ -18,6 +18,7 @@ const ms = require("ms");
 //require("discord-buttons")(bot);
 
 const { prefix, TOKEN, developer } = require("./util/main");
+const { get } = require("node-superfetch");
 
 let PREFIX = prefix;
 
@@ -113,6 +114,43 @@ bot.on("messageUpdate", async(oldMessage, message) => {
     return channel.send(embed);
   }
 });
+bot.on("guildMemberAdd", member, message => {
+    let guild = member.guild;
+    let server = guild.name;
+    let total = guild.memberCount;
+    let channel = member.guild.channels.cache.find(ch => ch.name === "logs");
+    let role = member.guild.roles.cache.find(r => r.name === "member");
+    if (!channel) return;
+    if (!role) return;
+    const embed = new MessageEmbed()
+      .setColor("GREEN")
+      .setTitle("Welcome!")
+      .setDescription(`Asik ${member} join, sekarang member ada: ${total} member`)
+      .setTimestamp()
+      .setFooter("script by: BuleWolf#0371\n");
+    channel.send(embed).then(member.roles.add(role.id));
+
+    const { antijoin } = require("../../Collection");
+    const getCollection = antijoin.get(message.guild.id);
+    if(!getCollection) return;
+
+    getCollection.push(member.user);
+    member.kick({ reason: "antijoin was enabled"});
+  });
+  bot.on("guildMemberRemove", member => {
+    let guild = member.guild;
+    let server = guild.name;
+    let total = guild.memberCount;
+    let channel = member.guild.channels.cache.find(ch => ch.name === "logs");
+    if (!channel) return;
+    const embed = new MessageEmbed()
+      .setColor("RED")
+      .setTitle("Good bye!")
+      .setDescription(`yah ${member} left, sekarang member sisa: ${total} member`)
+      .setTimestamp()
+      .setFooter("script by: BlueWolf#0371");
+    channel.send(embed);
+  });
 
 bot.on("ready", () => {
   function randomStatus() {
@@ -754,36 +792,6 @@ bot.on("message", async(message) => {
     
   }
   
-});
-bot.on("guildMemberAdd", member => {
-  let guild = member.guild;
-  let server = guild.name;
-  let total = guild.memberCount;
-  let channel = member.guild.channels.cache.find(ch => ch.name === "logs");
-  let role = member.guild.roles.cache.find(r => r.name === "member");
-  if (!channel) return;
-  if (!role) return;
-  const embed = new MessageEmbed()
-    .setColor("GREEN")
-    .setTitle("Welcome!")
-    .setDescription(`Asik ${member} join, sekarang member ada: ${total} member`)
-    .setTimestamp()
-    .setFooter("script by: BuleWolf#0371\n");
-  channel.send(embed).then(member.roles.add(role.id));
-});
-bot.on("guildMemberRemove", member => {
-  let guild = member.guild;
-  let server = guild.name;
-  let total = guild.memberCount;
-  let channel = member.guild.channels.cache.find(ch => ch.name === "logs");
-  if (!channel) return;
-  const embed = new MessageEmbed()
-    .setColor("RED")
-    .setTitle("Good bye!")
-    .setDescription(`yah ${member} left, sekarang member sisa: ${total} member`)
-    .setTimestamp()
-    .setFooter("script by: BlueWolf#0371");
-  channel.send(embed);
 });
 bot.on("message", async message => {
   let id = "786861563222163486";
