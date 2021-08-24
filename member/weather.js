@@ -4,10 +4,9 @@ const { MessageEmbed } = require("discord.js");
 module.exports = {
     name: "weather",
     run: async(bot, message, args) => {
-        let wea = args[1];
+        let wea = args.join(" ");
         //if(!wea) return message.channel.send("Please specify a weather");
         weather.find({ search: wea, degreeType: `C` }, function(error, result) {
-            if(error) message.channel.send(error);
 
             const embed = new MessageEmbed()
             .setTitle("Please specify a location")
@@ -25,7 +24,7 @@ module.exports = {
             let location = result[0].location;
 
             message.channel.send("Getting weather info...").then(m => {
-                
+
                 const embed = new MessageEmbed()
                 .setAuthor(`**current weather for ${current.observationpoint}**`)
                 .setThumbnail(current.imgurl)
