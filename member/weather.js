@@ -5,7 +5,7 @@ module.exports = {
     name: "weather",
     run: async(bot, message, args) => {
         //if(!wea) return message.channel.send("Please specify a weather");
-        weather.find({ search: args.join(" "), degreeType: `C` }, function(error, result) {
+        weather.find({search: args.join(" "), degreeType: `C`}, function(error, result) {
 
             const embed = new MessageEmbed()
             .setTitle("Please specify a location")
