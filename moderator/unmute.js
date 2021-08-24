@@ -8,7 +8,7 @@ module.exports = {
         if(!user) return message.channel.send("Please specify a user");
         const member = message.guild.members.cache.get(user.id);
         var role = message.guild.roles.cache.find(r => r.name === "mute");
-        if(!role) return message.channel.send(`I can't find the role ${role}`);
+        if(!role) return message.channel.send(`I can't find the role **mute**`);
         member.roles.remove(role.id);
         message.channel.send(`Successfully unwarn ${user} with role: **${role}**`);
     }
