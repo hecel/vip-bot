@@ -37,7 +37,7 @@ module.exports = {
                 .setColor("GREEN")
                 .setTimestamp();
 
-                m.edit(embed);
+                m.edit("Here for info:", embed);
             });
         });
     }
