@@ -4,8 +4,7 @@ module.exports = {
   name: "clear",
   descrption: "clear a message",
   usage: "clear <jumblah>",
-  aliases: ["delete"],
-  run: async(message, args) => {
+  run: async(bot, message, args) => {
     if (!message.member.hasPermission(["MANAGE_GUILD", "ADMINISTRATOR"])) {
         return message.channel.send({embed: {color: "RED", description: "You can't use this command!"}}).then(m => {
           m.delete({ timeout: 4000});
