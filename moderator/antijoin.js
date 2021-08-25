@@ -1,4 +1,5 @@
-const { antiJoin } = require("./Collection");
+const Discord = require("discord.js");
+const { antijoin } = new Discord.Collector();
 
 module.exports = {
     name: "antijoin",
