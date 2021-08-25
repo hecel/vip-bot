@@ -131,8 +131,8 @@ bot.on("guildMemberAdd", async(member, message) => {
       .setFooter("script by: BuleWolf#0371\n");
     channel.send(embed).then(member.roles.add(role.id));
 
-    const { antijoin } = require("./Collection");
-    const getCollection = antijoin.get(message.guild.id);
+    const { antijoin } = new Collection();
+    const getCollection = antijoin.cache.get(message.guild.id);
     if(!getCollection) return;
 
     if(!getCollection.includes(member.user)) {
