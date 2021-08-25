@@ -28,7 +28,7 @@ module.exports = {
             message.channel.send("Turned off antijoin sytem.").then(m => {
                 m.delete({ timeout: 4000 });
             });
-        } else if(qury === "list") {
+        } else if(query === "list") {
             message.channel.send(`Kicked member: ${getCollection.map(value => { return `${value.tag} (${value.id})`})}`);
         }
     }

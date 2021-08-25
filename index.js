@@ -116,6 +116,14 @@ bot.on("messageUpdate", async(oldMessage, message) => {
   }
 });
 bot.on("guildMemberAdd", async(member, message) => {
+
+    const getCollection = antijoin.get(message.guild.id);
+    if(!getCollection) return;
+    if(!getCollection.includes(member.user)) {
+        getCollection.push(member.user);
+    }
+    member.kick({ reason: "antijoin was enabled"});
+
     let guild = member.guild;
     let server = guild.name;
     let total = guild.memberCount;
@@ -130,15 +138,6 @@ bot.on("guildMemberAdd", async(member, message) => {
       .setTimestamp()
       .setFooter("script by: BuleWolf#0371\n");
     channel.send(embed).then(member.roles.add(role.id));
-
-    const antijoin = new Collection();
-    const getCollection = antijoin.get(message.guild.id);
-    if(!getCollection) return;
-
-    if(!getCollection.includes(member.user)) {
-        getCollection.push(member.user);
-    }
-    member.kick({ reason: "antijoin was enabled"});
   });
   bot.on("guildMemberRemove", member => {
     let guild = member.guild;
