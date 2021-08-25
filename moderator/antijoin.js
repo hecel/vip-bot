@@ -29,6 +29,7 @@ module.exports = {
                 m.delete({ timeout: 4000 });
             });
         } else if(query === "list") {
+            if(!getCollection) return message.channel.send("Antijoin is enabled!");
             message.channel.send(`Kicked member: ${getCollection.map(value => { return `${value.tag} (${value.id})`})}`);
         }
     }
