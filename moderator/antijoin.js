@@ -6,7 +6,7 @@ module.exports = {
     run: async(bot, message, args) => {
         if(!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send("You don't have permission to usage this command!");
         
-        let query = args[1]?.toLowerCase();
+        let query = args[1];
         if(!query) return message.channel.send("Please specify a query!");
 
         const getCollection = antijoin.get(message.guild.id);
