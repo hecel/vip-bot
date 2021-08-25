@@ -1,4 +1,4 @@
-const { antiJoin } = require("../Collection");
+const { antiJoin } = require("./Collection");
 
 module.exports = {
     name: "antijoin",
