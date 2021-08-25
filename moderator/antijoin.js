@@ -9,13 +9,13 @@ module.exports = {
         let query = args[2];
         if(!query) return message.channel.send("Please specify a query!");
 
-        const getCollection = antiJoin.get(message.guild.id);
+        const getCollection = antijoin.get(message.guild.id);
         if(query === "on") {
             if(getCollection) return message.channel.send("Antijoin is already enabled!").then(m => {
                 m.delete({ timeout: 4000});
             });
 
-            antiJoin.set(message.guild.id, []);
+            antijoin.set(message.guild.id, []);
             message.channel.send("Turned on antijoin sytem.").then(m => {
                 m.delete({ timeout: 4000});
             });
@@ -24,7 +24,7 @@ module.exports = {
                 m.delete({ timeout: 4000});
             });
 
-            antiJoin.delete(message.guild.id);
+            antijoin.delete(message.guild.id);
             message.channel.send("Turned off antijoin sytem.").then(m => {
                 m.delete({ timeout: 4000 });
             });
