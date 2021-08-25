@@ -11,6 +11,6 @@ module.exports = {
             if(!banUser) return message.channel.send("This user inst banned!");
             message.guild.members.unban(banUser.user);
         });
-        message.channel.send(`Successfully unbaned ${member.user.username}`);
+        message.channel.send(`Successfully unbaned ${member}`);
     }
 }
