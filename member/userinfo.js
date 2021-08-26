@@ -4,7 +4,7 @@ const moment = require("moment");
 exports.run = async (bot, message, args) => {
   
   let masuk = args.slice(1).join(" ");
-  let user = bot.users.cache.find(x => x.username === masuk) || bot.users.cache.get(masuk) || message.author;
+  let user = message.mentions.users.first() || bot.users.cache.find(x => x.username === masuk) || bot.users.cache.get(masuk) || message.author;
   if(!isNaN(args[0])) user = message.guild.members.cache.get(args[0]).user;
 
   let stat = {

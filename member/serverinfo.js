@@ -1,6 +1,7 @@
 const { MessageEmbed } = require("discord.js");
 const { Menu } = require("discord.js-menu");
 const { ReactionPages } = require("reconlx");
+const choice = ["🚫", "📣", "🔰", "📋"];
 
 exports.run = async(bot, message, args) => {
   
@@ -22,19 +23,19 @@ exports.run = async(bot, message, args) => {
         .setTitle("**__SERVER INFO__**")
         .setThumbnail(thumbnail)
         .addField("owner name:", owner)
+        .addField("**__INFO EMOJI__**", `\`📣: Main pages.\n🔰: region\n📋: total.\``);
       let embed2 = new MessageEmbed()
       .setColor("YELLOW")
       .addField("region:", region)
       .addField("server id:", Guild_Id)
       .addField("total member:", total)
-      .addField("total channel:", totalChannel)
+      .addField("total channel:", totalChannel);
       let embed3 = new MessageEmbed()
       .setColor("YELLOW")
       .addField("total emoji:", totalEmoji)
       .addField("total role:", role)
       .addField("member online", online)
       .addField("member dnd", dnd)
-      let embed4 = new MessageEmbed()
       .setColor("YELLOW")
       .addField("member idle:", idle)
       .addField("member offline", offline)
@@ -77,6 +78,40 @@ exports.run = async(bot, message, args) => {
 //       }
 //     }
 //   ]);
-const pages = [embed1, embed2, embed3, embed4];
-  ReactionPages(message, pages, false);
+const m = await message.channel.send(embed1);
+    for (const chot of choice) {
+      await m.react(chot);
+    }
+      const filter = (rect, usr) => usr.id !== message.client.user.id;
+      var collector = m.createReactionCollector(filter, { time: 600000, max: 1000 });
+        collector.on("collect", (reaction, user) => {
+        switch(reaction.emoji.name) {
+          
+          case "🚫":
+            reaction.users.remove(user).catch(console.error);
+            m.delete();
+            break;
+
+          case "📣":
+            reaction.users.remove(user).catch(console.error);
+            m.edit(embed1);
+            break;
+
+          case "🔰":
+            reaction.users.remove(user).catch(console.error);
+            m.edit(embed2);
+            break;
+
+          case "📋":
+            reaction.users.remove(user).catch(console.error);
+            m.edit(embed3);
+            
+            collector.stop();
+            break;
+            
+          default:
+            reaction.users.remove(user).catch(console.error);
+            break;
+        }
+      });
 }
