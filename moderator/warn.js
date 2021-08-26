@@ -14,14 +14,5 @@ module.exports = {
         
         member.roles.add(role.id);
         message.channel.send(`Successfully warn ${user} with role: **${role}**`);
-
-        if(!args[2]) {
-            member.roles.add(role.id);
-            message.channel.send(`${user} has been muted with time: ${ms(ms(args[2]))}`);
-        }
-        setTimeout(function() {
-            member.roles.remove(role.id);
-            message.channel.send(`${user} has been unmute`);
-        }, ms(args[2]));
     }
 }
