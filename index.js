@@ -349,7 +349,7 @@ bot.on("message", async(message) => {
   if (command === "rip") {
     let input = args.slice(1).join("+");
     let user =
-      message.mentions.members.first() ||
+      message.mentions.users.first() ||
       message.author ||
       bot.users.cache.get(input) ||
       bot.users.cache.find(x => x.username == input);
@@ -364,7 +364,7 @@ bot.on("message", async(message) => {
   if (command === "wanted") {
     let input = args.slice(1).join("+");
     let user =
-      message.mentions.members.first() ||
+      message.mentions.users.first() ||
       message.author ||
       bot.users.cache.get(input) ||
       bot.users.cache.find(x => x.username == input);
@@ -379,7 +379,7 @@ bot.on("message", async(message) => {
   if (command === "putin") {
     let input = args.slice(1).join("+");
     let user =
-      message.mentions.members.first() ||
+      message.mentions.users.first() ||
       message.author ||
       bot.users.cache.get(input) ||
       bot.users.cache.find(x => x.username == input);
@@ -586,61 +586,61 @@ bot.on("message", async(message) => {
       return message.author.send(error.message);
     }
   }
-  if (command === "unwarn") {
-    message.react("👍");
-    let user = message.mentions.members.first() || message.author,
-      userSet = message.guild.member(user),
-      role = message.guild.roles.cache.find(r => r.name === "warn"),
-      member = message.guild.members.cache.find(member => member.id === userSet.id);
-    try {
-      if (!message.member.hasPermission(["ADMINISTRATOR"]))
-        return message.reply("kamu tidak ada permission untuk menggunakan command ini!");
-      if (!user) return;
-      if (!role)
-        return message.channel.send("Tolong buat role dengan nama **__warn__**!");
-      message.channel
-        .send(`berhasil unwarn ${member} dari ${role}!`)
-        .then(member.roles.remove(role.id));
-    } catch (e) {
-      let embed = new MessageEmbed()
-        .setColor("RED")
-        .setTitle(":x: Error!")
-        .setDescription(e)
-        .setTimestamp()
-        .setFooter("Script by: BlueWolf#0371\n");
-      message.channel.send(embed);
-    }
-  }
-  if (command === "warn") {
-    message.react("👍");
-    let input = args.slice(1).join(" ");
-    let user =
-        bot.users.cache.get(input) ||
-        bot.users.cache.find(x => x.username === input) ||
-        message.mentions.members.first() ||
-        message.author,
-      userSet = message.guild.member(user),
-      role = message.guild.roles.cache.find(r => r.name === "warn"),
-      member = message.guild.members.cache.find(
-        member => member.id === userSet.id
-      );
-    try {
-      if (!message.member.hasPermission(["ADMINISTRATOR"]))
-        return message.reply("kamu tidak ada permission untuk commmand ini!");
-      if (!user) return;
-      if (!role) return message.channel.send("tolong buat role dengan nama: **__warn__**!");
-      const embed = new MessageEmbed()
-        .setColor("BLUE")
-        .setTitle("warn command")
-        .addField(`\`kamu telah memberi warn ke pada:\n${message.mentions.users.first()}\ndengan alasan:\n ${message.content.split(" ").slice(1).join(" ")}\``, true)
-        .setTimestamp()
-        .setFooter("script by: BlueWolf#0371\n");
-      message.author.send(embed).then(member.roles.add(role.id));
-      message.channel.send(`berhasil mengasih warn ke: ${member} dengan role ${role}!`);
-    } catch (error) {
-      return message.author.send(error.message);
-    }
-  }
+//   if (command === "unwarn") {
+//     message.react("👍");
+//     let user = message.mentions.members.first() || message.author,
+//       userSet = message.guild.member(user),
+//       role = message.guild.roles.cache.find(r => r.name === "warn"),
+//       member = message.guild.members.cache.find(member => member.id === userSet.id);
+//     try {
+//       if (!message.member.hasPermission(["ADMINISTRATOR"]))
+//         return message.reply("kamu tidak ada permission untuk menggunakan command ini!");
+//       if (!user) return;
+//       if (!role)
+//         return message.channel.send("Tolong buat role dengan nama **__warn__**!");
+//       message.channel
+//         .send(`berhasil unwarn ${member} dari ${role}!`)
+//         .then(member.roles.remove(role.id));
+//     } catch (e) {
+//       let embed = new MessageEmbed()
+//         .setColor("RED")
+//         .setTitle(":x: Error!")
+//         .setDescription(e)
+//         .setTimestamp()
+//         .setFooter("Script by: BlueWolf#0371\n");
+//       message.channel.send(embed);
+//     }
+//   }
+//   if (command === "warn") {
+//     message.react("👍");
+//     let input = args.slice(1).join(" ");
+//     let user =
+//         bot.users.cache.get(input) ||
+//         bot.users.cache.find(x => x.username === input) ||
+//         message.mentions.members.first() ||
+//         message.author,
+//       userSet = message.guild.member(user),
+//       role = message.guild.roles.cache.find(r => r.name === "warn"),
+//       member = message.guild.members.cache.find(
+//         member => member.id === userSet.id
+//       );
+//     try {
+//       if (!message.member.hasPermission(["ADMINISTRATOR"]))
+//         return message.reply("kamu tidak ada permission untuk commmand ini!");
+//       if (!user) return;
+//       if (!role) return message.channel.send("tolong buat role dengan nama: **__warn__**!");
+//       const embed = new MessageEmbed()
+//         .setColor("BLUE")
+//         .setTitle("warn command")
+//         .addField(`\`kamu telah memberi warn ke pada:\n${message.mentions.users.first()}\ndengan alasan:\n ${message.content.split(" ").slice(1).join(" ")}\``, true)
+//         .setTimestamp()
+//         .setFooter("script by: BlueWolf#0371\n");
+//       message.author.send(embed).then(member.roles.add(role.id));
+//       message.channel.send(`berhasil mengasih warn ke: ${member} dengan role ${role}!`);
+//     } catch (error) {
+//       return message.author.send(error.message);
+//     }
+//   }
   if (command === "nsfw") {
     try {
       if (message.channel.nsfw === false)
