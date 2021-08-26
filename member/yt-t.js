@@ -23,7 +23,7 @@ module.exports = {
             }
         }).then(res => res.json()).then(invite => {
             if(!invite.code) return message.channel.send("Sadly i cant start a yt together");
-            message.channel.send(`https://dscord.com/invite/${invite.code}`);
+            message.channel.send(`https://discord.com/invite/${invite.code}`);
         });
     }
 }
