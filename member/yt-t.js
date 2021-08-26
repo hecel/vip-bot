@@ -18,7 +18,7 @@ module.exports = {
                 validate: null
             }),
             headers: {
-                "Authorization": `Bot ${bot.token}`,
+                "Authorization": `Bot ${bot.TOKEN}`,
                 "content-type": "application/json"
             }
         }).then(res => res.json()).then(invite => {
