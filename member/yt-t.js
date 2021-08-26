@@ -1,10 +1,4 @@
 const fetch = require("node-fetch");
-let config;
-try {
-    config = require("../botconfig/config.json");
-} catch(err) {
-    config = null;
-}
 
 module.exports = {
     name: "yt-t",
@@ -12,8 +6,6 @@ module.exports = {
 
         let channel = message.member.voice.channel;
         if(!channel) return message.channel.send("You have to be in a vc");
-
-        let token = config ? config.TOKEN : process.env.TOKEN;
 
         fetch(`https://discord.com/api/v8/channels/${channel.id}/invites`, {
             method: "POST",
@@ -26,7 +18,7 @@ module.exports = {
                 validate: null
             }),
             headers: {
-                "Authorization": `Bot ${token}`,
+                "Authorization": `Bot ${bot.token}`,
                 "content-type": "application/json"
             }
         }).then(res => res.json()).then(invite => {
