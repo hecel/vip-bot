@@ -356,10 +356,7 @@ bot.on("message", async(message) => {
     let avatar = user.displayAvatarURL({ dynamic: false, format: "png" });
     let img = await new DIG.Rip().getImage(avatar);
     let attach = new Discord.MessageAttachment(img, "rip.png");
-    message.channel.send(attach).then(wasted => {
-      wasted.react(emoji1);
-      wasted.react(emoji2);
-    });
+    message.channel.send(attach);
   }
   if (command === "wanted") {
     let input = args.slice(1).join("+");
@@ -371,10 +368,7 @@ bot.on("message", async(message) => {
     let avatar = user.displayAvatarURL({ dynamic: false, format: "png" });
     let img = await new DIG.Wanted().getImage(avatar);
     let attach = new Discord.MessageAttachment(img, "wanted.png");
-    message.channel.send(attach).then(wanted => {
-      wanted.react(emoji1);
-      wanted.react(emoji2);
-    });
+    message.channel.send(attach);
   }
   if (command === "putin") {
     let input = args.slice(1).join("+");
@@ -386,10 +380,7 @@ bot.on("message", async(message) => {
     let avatar = user.displayAvatarURL({ dynamic: false, format: "png" });
     let img = await new DIG.Poutine().getImage(avatar);
     let attach = new Discord.MessageAttachment(img, "putin.png");
-    message.channel.send(attach).then(b => {
-      b.react(emoji1);
-      b.react(emoji2);
-    });
+    message.channel.send(attach);
   }
   if (command === "report-bug") {
     try {
@@ -740,7 +731,7 @@ bot.on("message", async(message) => {
     const user =
       bot.users.cache.get(input) ||
       bot.users.cache.find(x => x.username == input) ||
-      message.mentions.members.first() ||
+      message.mentions.users.first() ||
       message.author;
 
     let avatar = user.displayAvatarURL({ size: 4096, dynamic: true }),
