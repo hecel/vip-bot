@@ -21,7 +21,7 @@ exports.run = async(bot, message, args) => {
   .setColor("BLUE");
 
   const embed4 = new Discord.MessageEmbed()
-  .addField("**__GAME__**", `gay\nnsfw\nramal\nputin\nwanted\nrip\npp\nejected\nmeeting\nyt-t`)
+  .addField("**__GAME__**", `gay\nnsfw\nramal\nputin\nwanted\nrip\npp\nejected\nmeeting\nyt-t\nship`)
   .setColor("BLUE");
 
   const embed5 = new Discord.MessageEmbed()
