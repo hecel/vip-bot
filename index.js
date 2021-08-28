@@ -187,6 +187,30 @@ bot.on("ready", () => {
 //         member.kick({ reason: "This is an alt account" });
 //     }
 // });
+bot.on("messageReactionAdd", async(reaction, user) => {
+    const starboard = async() => {
+        const SBChannel = bot.channels.cache.find(c => c.name.toLowerCase() === "starboard");
+        const msgs = await SBChannel.messages.fetch({ limit: 100});
+        const sentMessage = msgs.find(msg => msg.embeds.length = 1 ? (msg.embeds[0].footer.text.startsWith(reaction.message.id) ? true : false) : false);
+        if(sentMessage) sentMessage.edit(`${reaction.count} - ⭐`);
+        else {
+            const embed = new MessageEmbed()
+            .setAuthor(reaction.message.author.tag, reaction.message.author.displayAvatarURL({ dynamic: true }))
+            .setDescription(`**[Jump to the message](${reaction.message.url})**`)
+            .setColor("YELLOW")
+            .setFooter(reaction.message.id)
+            .setTimestamp();
+            if(SBChannel) SBChannel.send("1 - ⭐", embed);
+        }
+    }
+    if(reaction.emoji.name === "⭐") {
+        if(reaction.message.channel.name.toLowerCase() === "starboard") return;
+        if(reaction.message.partial) {
+            await reaction.fetch();
+            await reaction.message.fetch();
+        } else starboard();
+    }
+});
 bot.on("message", async(message) => {
   if (message.author.bot || message.channel.type === "dm") return;
   if (!message.content.startsWith(prefix)) return;
