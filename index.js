@@ -190,6 +190,7 @@ bot.on("ready", () => {
 bot.on("messageReactionAdd", async(reaction, user) => {
     const starboard = async() => {
         const SBChannel = bot.channels.cache.find(c => c.name.toLowerCase() === "starboard");
+        if(!SBChannel.message.guild) return;
         const msgs = await SBChannel.messages.fetch({ limit: 100});
         const sentMessage = msgs.find(msg => msg.embeds.length = 1 ? (msg.embeds[0].footer.text.startsWith(reaction.message.id) ? true : false) : false);
         if(sentMessage) sentMessage.edit(`${reaction.count} - ⭐`);
