@@ -196,7 +196,7 @@ bot.on("messageReactionAdd", async(reaction, user) => {
         else {
             const embed = new MessageEmbed()
             .setAuthor(reaction.message.author.tag, reaction.message.author.displayAvatarURL({ dynamic: true }))
-            .setDescription(`**[Jump to the message](${reaction.message.url})**`)
+            .setDescription(`**[Jump to the message](${reaction.message.url})**\n\n${reaction.message.content}\n`)
             .setColor("YELLOW")
             .setFooter(reaction.message.id)
             .setTimestamp();
