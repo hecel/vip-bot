@@ -168,7 +168,7 @@ bot.on("ready", () => {
       `🎥| ${bot.users.cache.size} 👤User!`,
       `🎥| ${bot.guilds.cache.size} 📬Server!`,
       `🎥| ${bot.channels.cache.size} 🌐Channel!`,
-      `🎥| total shard: ${client.shard / 1000}%`
+      `🎥| total shard: ${bot.shard / 1000}%`
     ];
     bot.user.setActivity({
       url: "https://www.youtube.com/watch?v=iydD0OxoaH0",
