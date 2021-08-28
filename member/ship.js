@@ -12,14 +12,14 @@ module.exports = {
         const unLove = new Discord.MessageEmbed()
         .setTitle("This isn\'t a match")
         .setThumbnail("https://cdn.discordapp.com/attachments/824906735176253450/828554687229067275/images.png")
-        .setDescription(`${message.author} shipped with ${user} and it is`)
+        .setDescription(`${message.author} shipped with ${user} and it is ${r}%`)
         .setColor("RED")
         .setTimestamp();
 
         const love = new Discord.MessageEmbed()
         .setTitle("They are born for each others")
         .setThumbnail("https://cdn.discordapp.com/attachments/824906735176253450/828555115593859123/9k.png")
-        .setDescription(`${message.author} shipped with ${user} and it is`)
+        .setDescription(`${message.author} shipped with ${user} and it is ${r}%`)
         .setColor("GREEN")
         .setTimestamp();
 
