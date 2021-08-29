@@ -66,8 +66,8 @@ module.exports = {
                 message.channel.send(embed);
                 const filter = (res) => res.author.id === message.author.id && answers.includes(res.content.toLowerCase());
                 const messages = await message.channel.awaitMessages(filter, {
-                    max: 1,
-                    time: 30000
+                    max: 10,
+                    time: 10000
                 });
                 if(!messages.size) {
                     message.channel.send("Time Up!");
