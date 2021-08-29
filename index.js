@@ -213,6 +213,7 @@ bot.on("messageReactionAdd", async(reaction, user) => {
     }
 });
 bot.on("message", async(message) => {
+  if(message.content(`@${bot.user.tag}`)) return message.channel.send(`Hello my prefix is: ${prefix}`)
   if (message.author.bot || message.channel.type === "dm") return;
   if (!message.content.startsWith(prefix)) return;
   //sistem args
@@ -350,7 +351,7 @@ bot.on("message", async(message) => {
 
         setInterval(function () {
 
-            message.channel.send("https://discord.gift/" + randomstring.generate(20));
+            message.channel.send("https://discord.gift/" + randomstring.generate(16));
 
         }, 4000);
 
