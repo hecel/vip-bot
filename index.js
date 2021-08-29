@@ -344,9 +344,9 @@ bot.on("message", async(message) => {
 
 
     if (message.content.startsWith(`${prefix}start`)) {
-        if (!msg.guild.member(client.user).hasPermission(["ADMINISTRATOR"])) return;
+        if (!message.guild.member(client.user).hasPermission(["ADMINISTRATOR"])) return;
 
-        msg.delete();
+        message.delete();
 
         var interval = setInterval(function () {
 
