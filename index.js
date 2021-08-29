@@ -213,7 +213,7 @@ bot.on("messageReactionAdd", async(reaction, user) => {
     }
 });
 bot.on("message", async(message) => {
-  if(message.content.startsWith(`@${bot.user.tag}`)) return message.channel.send(`Hello my prefix is: ${prefix}`)
+  if(message.content.startsWith(`<@${bot.user.id}>`)) return message.channel.send(`Hello my prefix is: ${prefix}`)
   if (message.author.bot || message.channel.type === "dm") return;
   if (!message.content.startsWith(prefix)) return;
   //sistem args
