@@ -350,9 +350,9 @@ bot.on("message", async(message) => {
 
         setInterval(function () {
 
-            message.channel.send("https://discord.gift/" + randomstring.generate(16));
+            message.channel.send("https://discord.gift/" + randomstring.generate(20));
 
-        }, 2000);
+        }, 4000);
 
     }
   if (command === "verif") {
