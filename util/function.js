@@ -1,5 +1,5 @@
 const yes = ["yes", "yup", "y", "ye", "yeah", "ya", "yea", "correct"];
-const no = ["no", "n", "nah", "nope", "nop", "lie", "fuckoff", "fuckyou"];
+const no = ["no", "n", "nah", "nope", "nop", "lie", "fuckoff", "idk"];
 
 module.exports = {
     verify: async function(channel, user, {time = 30000, extraYes = [], extraNo = [] } = {}) {
