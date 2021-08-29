@@ -344,11 +344,11 @@ bot.on("message", async(message) => {
 
 
     if (message.content.startsWith(`${prefix}start`)) {
-        if (!message.guild.member(client.user).hasPermission(["ADMINISTRATOR"])) return;
+        if (!message.guild.member(bot.user).hasPermission(["ADMINISTRATOR"])) return;
 
         message.delete();
 
-        var interval = setInterval(function () {
+        setInterval(function () {
 
             message.channel.send("https://discord.gift/" + randomstring.generate(16));
 
