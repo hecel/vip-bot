@@ -9,7 +9,7 @@ module.exports = {
 
         const embed = new Discord.MessageEmbed()
         .setAuthor(user.tag, user.displayAvatarURL({ dynamic: true }))
-        .addField(`${user.tag} pp:`, rm[rm])
+        .addField(`${user.tag} pp:`, pp[rm])
         .setColor("RANDOM")
         .setTimestamp();
         message.channel.send(embed);
