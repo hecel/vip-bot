@@ -4,8 +4,8 @@ const Discord = require("discord.js");
 module.exports = {
     name: "translate",
     run: async(bot, message, args) => {
-        let text = args.slice(1).join(" ");
-        let lang = args[2];
+        let text = args.slice(2).join(" ");
+        let lang = args[1];
         if(!text) return message.channel.send("Please provide a text to translate");
         if(!lang) return message.channel.send("Please provide a ISO code of the language");
 
