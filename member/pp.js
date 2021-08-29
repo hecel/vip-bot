@@ -4,7 +4,8 @@ module.exports = {
     name: "pp",
     run: async(bot , message, args) => {
         let user = message.mentions.users.first() || message.author;
-        let rm = `${Math.floor(Math.random() * "=") + "D"}`;
+        let pp = [")=D", ")====D", ")======D", ")===========D", ")==============D", ")====================D"];
+        let rm = `${Math.floor(Math.random() * pp.length)}`;
 
         const embed = new Discord.MessageEmbed()
         .setAuthor(user.tag, user.displayAvatarURL({ dynamic: true }))
