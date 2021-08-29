@@ -17,6 +17,8 @@ module.exports = {
             .setDescription(res.text)
             .setTimestamp();
             message.channel.send(embed);
+        }).catch(err => {
+            return message.channel.send("Please provide a ISO code of the language");
         });
     }
 }
