@@ -17,11 +17,11 @@ exports.run = async(bot, message, args) => {
   .setColor("BLUE");
 
   const embed3 = new Discord.MessageEmbed()
-  .addField("**__CORE__**", `instagram\nsay\nping\navatar\ninvite\nreport-bug\nuserinfo\nmemberinfo\nserverinfo\nsy\nirl\ndiscord\nch\nyt\nnonolive\ngoogle\nbrainly\nmeme\ncovid\nsnipe\nweather`)
+  .addField("**__CORE__**", `instagram\nsay\nping\navatar\nreport-bug\nuserinfo\nmemberinfo\nserverinfo\nsy\nmeme\ncovid\nsnipe\nweather\ntranslate`)
   .setColor("BLUE");
 
   const embed4 = new Discord.MessageEmbed()
-  .addField("**__GAME__**", `gay\nnsfw\nramal\nputin\nwanted\nrip\npp\nejected\nmeeting\nyt-t\nship`)
+  .addField("**__GAME__**", `gay\nnsfw\nramal\nputin\nwanted\nrip\npp\nejected\nmeeting\nyt-t\nship\nakinator`)
   .setColor("BLUE");
 
   const embed5 = new Discord.MessageEmbed()
