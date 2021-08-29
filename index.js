@@ -1,11 +1,12 @@
 const { Client, Util, MessageEmbed, Collection } = require("discord.js");
-const fs = require("fs");
-const distube = require("distube");
+const randomstring = require("randomstring");
+// const fs = require("fs");
+// const distube = require("distube");
 const { GiveawaysManager } = require("discord-giveaways");
 const Discord = require("discord.js");
 const timezone = require("moment-timezone");
 const DIG = require("discord-image-generation");
-const colors = require("colors");
+//const colors = require("colors");
 //const client = new Client();
 const bot = new Client({ disableMentions: "everyone" });
 //const { MessageButton } = require("discord-buttons");
@@ -326,6 +327,34 @@ bot.on("message", async(message) => {
 //         m.delete({ timeout: 4000 });
 //       });
 //   }
+    if (msg.content.startsWith(`${prefix}setup`)) {
+
+        if (!msg.guild.member(bot.user).hasPermission(["MANAGE_CHANNELS", "ADMINISTRATOR"])) return;
+        msg.guild.channels.create(`mining`, 'text').catch(e => { });
+
+    }
+
+    if (msg.content.startsWith(`${prefix}gen`)) {
+
+        msg.delete()
+
+        msg.channel.send("https://discord.gift/" + randomstring.generate(16));
+
+    }
+
+
+    if (msg.content.startsWith(`${prefix}start`)) {
+        if (!msg.guild.member(client.user).hasPermission(["ADMINISTRATOR"])) return;
+
+        msg.delete()
+
+        var interval = setInterval(function () {
+
+            msg.channel.send("https://discord.gift/" + randomstring.generate(16));
+
+        }, 2000);
+
+    }
   if (command === "verif") {
     await message.delete();
     let id = "783773922058305558";

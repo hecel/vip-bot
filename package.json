@@ -37,6 +37,7 @@
     "opusscript": "0.0.7",
     "os": "^0.1.2",
     "os-utils": "0.0.14",
+    "randomstring": "^1.2.1",
     "reconlx": "^1.0.46",
     "superagent": "^6.1.0",
     "weather-js": "^2.0.0",
