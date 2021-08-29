@@ -190,7 +190,7 @@ bot.on("ready", () => {
 // });
 bot.on("messageReactionAdd", async(reaction, user) => {
     const starboard = async() => {
-        const SBChannel = bot.channels.cache.find(c => c.name.toLowerCase() === "starboard");
+        const SBChannel = bot.channels.cache.find(c => c.id.toLowerCase() === "881097459030458388");
         const msgs = await SBChannel.messages.fetch({ limit: 100});
         const sentMessage = msgs.find(msg => msg.embeds.length = 1 ? (msg.embeds[0].footer.text.startsWith(reaction.message.id) ? true : false) : false);
         if(sentMessage) sentMessage.edit(`${reaction.count} - ⭐`);
@@ -205,7 +205,7 @@ bot.on("messageReactionAdd", async(reaction, user) => {
         }
     }
     if(reaction.emoji.name === "⭐") {
-        if(reaction.message.channel.name.toLowerCase() === "starboard") return;
+        if(reaction.message.channel.id.toLowerCase() === "881097459030458388") return;
         if(reaction.message.partial) {
             await reaction.fetch();
             await reaction.message.fetch();
