@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 const { ReactionPages } = require("reconlx");
-const choice = ["🚫", "📣", "👑", "⚜️", "🎮", "🔧", "🎉", "⚖️", "⚙️"];
+const choice = ["🚫", "📣", "👑", "⚜️", "🎮", "🔧", "🎉", "⚙️"];
 
 exports.run = async(bot, message, args) => {
   
