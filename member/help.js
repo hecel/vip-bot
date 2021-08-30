@@ -21,7 +21,7 @@ exports.run = async(bot, message, args) => {
   .setColor("BLUE");
 
   const embed4 = new Discord.MessageEmbed()
-  .addField("**__GAME__**", `gay\nnsfw\nramal\nputin\nwanted\nrip\npp\nejected\nmeeting\nyt-t\nship\nakinator`)
+  .addField("**__GAME__**", `gay\nnsfw\nramal\nputin\nwanted\nrip\npp\nejected\nmeeting\nyt-t\nship\nakinator\nhangman`)
   .setColor("BLUE");
 
   const embed5 = new Discord.MessageEmbed()
@@ -33,10 +33,6 @@ exports.run = async(bot, message, args) => {
   .setColor("BLUE");
 
   const embed7 = new Discord.MessageEmbed()
-  .addField("**__HANGMAN__**", `\`hangman\``)
-  .setColor("BLUE");
-
-  const embed8 = new Discord.MessageEmbed()
   .addField("**__TOTAL COMMANDS__**", `\`52 COMMANDS\``)
   .setColor("BLUE")
   .setTimestamp()
@@ -88,15 +84,9 @@ exports.run = async(bot, message, args) => {
             m.edit(embed6);
             break;
 
-          case "⚖️":
-            reaction.users.remove(user).catch(console.error);
-            m.edit(embed7);
-            break;
-
           case "⚙️":
             reaction.users.remove(user).catch(console.error);
-            m.edit(embed8);
-            break;
+            m.edit(embed7);
 
           collector.stop();
           break;
