@@ -161,7 +161,7 @@ bot.on("ready", () => {
       `🎥| My prefix ${PREFIX}`,
       `🎥| creator: ${developer}`,
       //`🎥| invite saya: ${PREFIX}invite`,
-      `🎥| found a bug? | ${PREFIX}report-bug`,
+      //`🎥| found a bug? | ${PREFIX}report-bug`,
       //"🎥| Rilis Versi 4.2.6",
       //`🎥| mau kirim masukan? | ${PREFIX}request`,
       //`🎥| mau ngerjain tugas sambil main discord? | ${PREFIX}google | ${PREFIX}brainly`,
@@ -527,22 +527,22 @@ bot.on("message", async(message) => {
     try {
       let pertanyaan = message.content.split(" ").slice(1).join(" ");
       let jawaban = [
-        "tidak",
-        "ya",
-        "mungkin",
-        "bisa jadi",
+        "no",
+        "yes",
+        "possible",
+        "it could be",
         "error",
-        "entahlah",
-        "lupa"
+        "who knows",
+        "forget"
       ];
-      let m = await message.channel.send("Sedang meramal <a:loading:771193549436747786>");
+      let m = await message.channel.send("is fortune-telling...");
       setTimeout(() => {
         const embed = new MessageEmbed()
           .setColor("RANDOM")
           .setAuthor(message.author.tag, message.author.displayAvatarURL())
-          .setTitle("**🔮Bola Sakti🔮**")
-          .addField("pertanyaan:", `**${pertanyaan}**`)
-          .addField("Jawaban",`**${jawaban[Math.floor(Math.random() * jawaban.length)]}**`)
+          .setTitle("**🔮Magic ball🔮**")
+          .addField("Question:", `**${pertanyaan}**`)
+          .addField("Answer:",`**${jawaban[Math.floor(Math.random() * jawaban.length)]}**`)
           .setTimestamp()
           .setFooter("Script by: BlueWolf#0371\n");
         m.edit("berhasil meramal!", embed).then(ramal => {
@@ -689,7 +689,7 @@ bot.on("message", async(message) => {
   if (command === "nsfw") {
     try {
       if (message.channel.nsfw === false)
-        return message.reply("Tolong Buat channel nsfw supaya biar aman!");
+        return message.reply("Please create an nsfw channel to keep it safe!");
       const img = ["https://nekos.life/api/v2/img/lewd"];
       let nsfw = Math.floor(Math.random() * img.length);
 
@@ -748,11 +748,11 @@ bot.on("message", async(message) => {
   if(command === "time") {
     message.react("⌚");
     try {
-      const m = await message.channel.send("mengecek time");
+      const m = await message.channel.send("is setting the time...");
       setTimeout(() => {
         const embed = new MessageEmbed()
           .setColor("#FF8401")
-          .addField(`:flag_id: Time Zone Indonesia:\n**${timezone().tz("Asia/Jakarta").format("⌚️ HH:mm [WIB]") + " "}**\n**${timezone().tz("Asia/Irkutsk").format("⌚️ HH:mm [WITA]") + " "}**\n**${timezone().tz("Asia/Jayapura").format("⌚️ HH:mm [WIT]") + " "}**`, true)
+          .addField(`:flag_id: Time Zone Indonesian:\n**${timezone().tz("Asia/Jakarta").format("⌚️ HH:mm [WIB]") + " "}**\n**${timezone().tz("Asia/Irkutsk").format("⌚️ HH:mm [WITA]") + " "}**\n**${timezone().tz("Asia/Jayapura").format("⌚️ HH:mm [WIT]") + " "}**`, true)
           .addField(`:flag_us: Time Zone America:\n**${timezone().tz("America/New_York").format("⌚️ HH:mm []") + " "}**\n**${timezone().tz("America/Los_Angeles").format("⌚️ HH:mm []") + " "}**`, true)
           .setTimestamp()
           .setFooter("Scrip by: BlueWolf#0371\n");
@@ -765,7 +765,7 @@ bot.on("message", async(message) => {
   if (command === "ping") {
     message.react("📶");
     try {
-      const m = await message.channel.send("Mencari ping");
+      const m = await message.channel.send("is setting the signal");
       setTimeout(() => {
         const embed = new Discord.MessageEmbed()
           .setColor("#FF8401")
@@ -774,7 +774,7 @@ bot.on("message", async(message) => {
           .addField("⌛ Latency",`**${m.createdTimestamp - message.createdTimestamp}ms!**`)
           .setTimestamp()
           .setFooter("Scrip by: BlueWolf#0371\n");
-        m.edit(`sukses mencari ping`, embed);
+        m.edit(`Successfully set signal`, embed);
       }, 4000);
     } catch (error) {
       return message.channel.send(error.message);

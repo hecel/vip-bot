@@ -17,7 +17,7 @@ exports.run = async(bot, message, args) => {
   .setColor("BLUE");
 
   const embed3 = new Discord.MessageEmbed()
-  .addField("**__CORE__**", `instagram\nsay\nping\navatar\nreport-bug\nuserinfo\nmemberinfo\nserverinfo\nsy\nmeme\ncovid\nsnipe\nweather\ntranslate`)
+  .addField("**__CORE__**", `say\nping\navatar\nruserinfo\nmemberinfo\nserverinfo\nsy\nmeme\ncovid\nsnipe\nweather\ntranslate`)
   .setColor("BLUE");
 
   const embed4 = new Discord.MessageEmbed()
