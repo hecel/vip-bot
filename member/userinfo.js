@@ -16,7 +16,15 @@ exports.run = async (bot, message, args) => {
 
   let pre = stat[user.presence.status];
   let image = pre.split(" | ")[0];
-  let status = pre.split(" | ")[1]; 
+  let status = pre.split(" | ")[1];
+  let nickname = user.nickname ? user.nickname : "null";
+  let role = "";
+
+  user._roles.forEach((id) => {
+      role += `${message.guild.roles.cache.get(id)}`;
+  });
+
+  let roles = role ? role : "null";
 
   let d = Date.now() - user.createdAt;
   let jm = Math.floor(d / 86400000);
@@ -30,7 +38,9 @@ exports.run = async (bot, message, args) => {
   .setColor("RANDOM")
   .setThumbnail(user.displayAvatarURL())
   .addField("Username", user.username)
+  .addField("Nickname", nickname)
   .addField("User ID", user.id)
+  .addField("User Role", roles)
   .addField("Account Type", Bot)
   .addField("Account Created", `${buat} Since (${jm} Day's Ago)`)
   .addField("User Status", status)
