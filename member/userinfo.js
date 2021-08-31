@@ -3,9 +3,12 @@ const moment = require("moment");
 
 exports.run = async (bot, message, args) => {
   
-  let masuk = args.slice(1).join(" ");
-  let user = message.mentions.users.first() || bot.users.cache.find(x => x.username === masuk) || bot.users.cache.get(masuk) || message.author;
+  //let masuk = args.slice(1).join(" ");
+  let user = message.mentions.users.first() || message.author;
   if(!isNaN(args[0])) user = message.guild.members.cache.get(args[0]).user;
+
+  let member = message.guild.members.cache.get(user.id);
+
 
   let stat = {
       "online": "https://emoji.gg/assets/emoji/9166_online.png | Online",
@@ -20,7 +23,7 @@ exports.run = async (bot, message, args) => {
   let nickname = user.nickname ? user.nickname : "null";
   let role = "";
 
-  user._roles.forEach((id) => {
+  member._roles.forEach((id) => {
       role += `${message.guild.roles.cache.get(id)}`;
   });
 
