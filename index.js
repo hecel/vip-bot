@@ -8,7 +8,7 @@ const timezone = require("moment-timezone");
 const DIG = require("discord-image-generation");
 //const colors = require("colors");
 //const client = new Client();
-const bot = new Client(); //({ disableMentions: "everyone" });
+const bot = new Client({ partials: ["MESSAGE", "REACTION"] }); //({ disableMentions: "everyone" });
 //const { MessageButton } = require("discord-buttons");
 const superagent = require("superagent");
 const express = require("express");
@@ -87,7 +87,7 @@ bot.on("guildCreate", (guild) => {
     .setColor("#00fdfd")
     .setDescription(`My prefix is **${prefix}**`)
     .addField("need help?", "Take a look at my developers!")
-    .addField("join my developer's existing server!", "[join](https://discord.gg/MCZdCqJmqk)")
+    .addField("join my developer's existing server!", "[join](https://discord.gg/zuVYHJfaHC)")
     .setTimestamp();
     ch.send(embed).catch(e => {
         if(e) return;
@@ -224,7 +224,7 @@ bot.on("messageReactionAdd", async(reaction, user) => {
         }
     }
     if(reaction.emoji.name === "⭐") {
-        if(reaction.message.channel.name.toLowerCase() === "881097459030458388") return;
+        if(reaction.message.channel.name.toLowerCase() === "starboard") return;
         if(reaction.message.partial) {
             await reaction.fetch();
             await reaction.message.fetch();
