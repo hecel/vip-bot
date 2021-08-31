@@ -19,7 +19,15 @@ exports.run = async (bot, message, args) => {
 
   let pre = stat[user.presence.status];
   let image = pre.split(" | ")[0];
-  let status = pre.split(" | ")[1]; 
+  let status = pre.split(" | ")[1];
+  let nickname = member.nickname ? member.nickname : "null";
+  let role = "";
+
+  member._roles.forEach((id) => {
+      role += `${message.guild.roles.cache.get(id)}`;
+  });
+
+  let roles = role ? role : "null";
 
   let d = Date.now() - user.createdAt;
   let jm = Math.floor(d / 86400000);
