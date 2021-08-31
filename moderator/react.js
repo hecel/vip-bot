@@ -10,7 +10,7 @@ module.exports = {
 
         const embed = new Discord.MessageEmbed()
         .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
-        .setColor("RANDOM")
+        .setColor("#00fdfd")
         .setDescription(`React with ✅ to get the role ${roles}`)
         .setTimestamp();
         let msg = await message.channel.send(embed);
