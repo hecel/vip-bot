@@ -1,5 +1,5 @@
-const discord = require("discord.js")
-const moment = require("moment")
+const discord = require("discord.js");
+const moment = require("moment");
 
 exports.run = async (bot, message, args) => {
   
@@ -17,27 +17,30 @@ exports.run = async (bot, message, args) => {
       "offline": "https://emoji.gg/assets/emoji/7445_status_offline.png | Offline"
     }
 
-  let pre = stat[user.presence.status]
-  let image = pre.split(" | ")[0]
-  let status = pre.split(" | ")[1] 
+  let pre = stat[user.presence.status];
+  let image = pre.split(" | ")[0];
+  let status = pre.split(" | ")[1]; 
 
-  let d = Date.now() - user.createdAt
-  let jm = Math.floor(d / 86400000)
-  if(jm < 1)jm = 0
+  let d = Date.now() - user.createdAt;
+  let jm = Math.floor(d / 86400000);
+  if(jm < 1)jm = 0;
 
-  let c = Date.now() - message.guild.member(user.id).joinedAt
-  let jc = Math.floor(c / 86400000)
-  if(jc < 1)jc = 0
+  let c = Date.now() - message.guild.member(user.id).joinedAt;
+  let jc = Math.floor(c / 86400000);
+  if(jc < 1)jc = 0;
 
-  let buat = moment.utc(user.createdAt).format('lll')
-  let join = moment.utc(message.guild.member(user.id).joinedAt).format('lll')
-  let Bot = user.bot ? "Bot" : "Human"
+  let buat = moment.utc(user.createdAt).format('lll');
+  let join = moment.utc(message.guild.member(user.id).joinedAt).format('lll');
+  let Bot = user.bot ? "Bot" : "Human";
 
    const embed = new discord.MessageEmbed()
   .setAuthor(user.tag,user.displayAvatarURL())
   .setColor("RANDOM")
   .setThumbnail(user.displayAvatarURL())
   .addField("Username", user.username)
+  .addField("Nickname", nickname)
+  .addField("User ID", user.id)
+  .addField("User Role", roles)
   .addField("User ID", user.id,true)
   .addField("Account Type", Bot)
   .addField("Account Created", `${buat} Since (${jm} Day's Ago)`)
