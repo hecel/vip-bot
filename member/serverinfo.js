@@ -19,7 +19,7 @@ exports.run = async(bot, message, args) => {
         offline = message.guild.members.cache.filter(m => m.user.presence.status === "offline").size;
   
       let embed1 = new MessageEmbed()
-        .setColor("YELLOW")
+        .setColor("#00fdfd")
         .setTitle("**__SERVER INFO__**")
         .setThumbnail(thumbnail)
         .addField("owner name:", owner)

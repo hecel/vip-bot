@@ -27,7 +27,7 @@ exports.run = async (bot, message, args) => {
 
    const embed = new discord.MessageEmbed()
   .setAuthor(user.tag,user.displayAvatarURL({ dynamic: true }))
-  .setColor("RANDOM")
+  .setColor("#00fdfd")
   .setThumbnail(user.displayAvatarURL({ dynamic: true }))
   .addField("Username", user.username)
   .addField("User ID", user.id)
