@@ -218,8 +218,8 @@ bot.on("messageReactionAdd", async(reaction, user) => {
             .setDescription(`**[Jump to the message](${reaction.message.url})**\n\n${reaction.message.content}\n`)
             .setColor("YELLOW")
             .setFooter(reaction.message.id)
-            .setImage(reaction.message.attachments.array()[0].proxyURL)
             .setTimestamp();
+            if(reaction.message.attachments.array().length >= 1) embed.setImage(reaction.message.attachments.array()[0].proxyURL);
             if(SBChannel) SBChannel.send("1 - ⭐", embed);
         }
     }
