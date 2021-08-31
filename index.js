@@ -206,30 +206,31 @@ bot.on("ready", () => {
 //         member.kick({ reason: "This is an alt account" });
 //     }
 // });
-// bot.on("messageReactionAdd", async(reaction, user) => {
-//     const starboard = async() => {
-//         const SBChannel = bot.channels.cache.find(c => c.id.toLowerCase() === "881097459030458388");
-//         const msgs = await SBChannel.messages.fetch({ limit: 100});
-//         const sentMessage = msgs.find(msg => msg.embeds.length = 1 ? (msg.embeds[0].footer.text.startsWith(reaction.message.id) ? true : false) : false);
-//         if(sentMessage) sentMessage.edit(`${reaction.count} - ⭐`);
-//         else {
-//             const embed = new MessageEmbed()
-//             .setAuthor(reaction.message.author.tag, reaction.message.author.displayAvatarURL({ dynamic: true }))
-//             .setDescription(`**[Jump to the message](${reaction.message.url})**\n\n${reaction.message.content}\n`)
-//             .setColor("YELLOW")
-//             .setFooter(reaction.message.id)
-//             .setTimestamp();
-//             if(SBChannel) SBChannel.send("1 - ⭐", embed);
-//         }
-//     }
-//     if(reaction.emoji.name === "⭐") {
-//         if(reaction.message.channel.id.toLowerCase() === "881097459030458388") return;
-//         if(reaction.message.partial) {
-//             await reaction.fetch();
-//             await reaction.message.fetch();
-//         } else starboard();
-//     }
-// });
+bot.on("messageReactionAdd", async(reaction, user) => {
+    const starboard = async() => {
+        const SBChannel = bot.channels.cache.find(c => c.name.toLowerCase() === "starboard");
+        const msgs = await SBChannel.messages.fetch({ limit: 100});
+        const sentMessage = msgs.find(msg => msg.embeds.length = 1 ? (msg.embeds[0].footer.text.startsWith(reaction.message.id) ? true : false) : false);
+        if(sentMessage) sentMessage.edit(`${reaction.count} - ⭐`);
+        else {
+            const embed = new MessageEmbed()
+            .setAuthor(reaction.message.author.tag, reaction.message.author.displayAvatarURL({ dynamic: true }))
+            .setDescription(`**[Jump to the message](${reaction.message.url})**\n\n${reaction.message.content}\n`)
+            .setColor("YELLOW")
+            .setFooter(reaction.message.id)
+            .setImage(reaction.message.attachments.array()[0].proxyURL)
+            .setTimestamp();
+            if(SBChannel) SBChannel.send("1 - ⭐", embed);
+        }
+    }
+    if(reaction.emoji.name === "⭐") {
+        if(reaction.message.channel.name.toLowerCase() === "881097459030458388") return;
+        if(reaction.message.partial) {
+            await reaction.fetch();
+            await reaction.message.fetch();
+        } else starboard();
+    }
+});
 bot.on("message", async(message) => {
   //if(message.content.startsWith(`<@${bot.user.id}>`)) return message.channel.send(`Hello my prefix is: ${prefix}`);
   if (message.author.bot || message.channel.type === "dm") return;

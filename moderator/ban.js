@@ -1,5 +1,5 @@
 module.exports = {
-    name: "kick",
+    name: "ban",
     run: async(bot, message, args) => {
         if(!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send("You dont have permission to run this command!");
         const member = message.mentions.users.first();
