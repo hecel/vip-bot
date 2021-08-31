@@ -1,6 +1,6 @@
 const { Client, Util, MessageEmbed, Collection } = require("discord.js");
 const randomstring = require("randomstring");
-// const fs = require("fs");
+const fs = require("fs");
 // const distube = require("distube");
 const { GiveawaysManager } = require("discord-giveaways");
 const Discord = require("discord.js");
@@ -70,11 +70,11 @@ bot.giveaways = new GiveawaysManager(bot, {
 });
 const antijoin = new Collection();
 
-//const commandFiles = fs.readdirSync("./commands").filter(file => file.endsWith(".js"));
-//for(const file of commandFiles) {
-  //const command = require(`./commands/${file}`);
-  //bot.commands.set(command.name, command);
-//}
+const files = fs.readdirSync("./member/music").filter(file => file.endsWith(".js"));
+for(const file of files) {
+  const command = require(`./member/music/${file}`);
+  bot.commands.set(command.name, command);
+}
 bot.on("guildCreate", (guild) => {
     let ch;
     guild.channels.cache.forEach((channel) => {
