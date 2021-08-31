@@ -20,6 +20,7 @@ const ms = require("ms");
 
 const { prefix, TOKEN, developer } = require("./util/main");
 const { get } = require("node-superfetch");
+require("./handler/module.js")(bot);
 
 let PREFIX = prefix;
 
