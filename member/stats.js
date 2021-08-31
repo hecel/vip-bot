@@ -50,7 +50,7 @@ module.exports = {
 • Users       :: ${bot.users.cache.size}
 • Servers     :: ${bot.guilds.cache.size}
 • Channels    :: ${bot.channels.cache.size}
-• Commands    :: 50
+• Commands    :: ${bot.commands.cache.size}
 • ID          :: ${bot.user.id}` + '```')
       .addField('📦・Package Information', '```' + `
 • Version     :: v${version}

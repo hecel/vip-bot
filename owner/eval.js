@@ -1,6 +1,7 @@
 const { MessageEmbed } = require("discord.js");
 const { post } = require("node-superfetch");
 const Discord = require("discord.js");
+const client = new Discord.Client();
 //const { MessageButton } = require("discord-buttons");
 const choice = ["🚫", "🗿"];
 let config;
