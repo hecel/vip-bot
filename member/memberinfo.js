@@ -49,7 +49,6 @@ exports.run = async (bot, message, args) => {
   .addField("Nickname", nickname)
   .addField("User ID", user.id)
   .addField("User Role", roles)
-  .addField("User ID", user.id,true)
   .addField("Account Type", Bot)
   .addField("Account Created", `${buat} Since (${jm} Day's Ago)`)
   .addField("User Joined", `${join} Since (${jc} Day's Ago)`)
