@@ -7,9 +7,6 @@ exports.run = async (bot, message, args) => {
   let user = message.mentions.users.first() || message.author;
   if(!isNaN(args[0])) user = message.guild.members.cache.get(args[0]).user;
 
-  let member = message.guild.members.cache.get(user.id);
-
-
   let stat = {
       "online": "https://emoji.gg/assets/emoji/9166_online.png | Online",
       "idle": "https://emoji.gg/assets/emoji/3929_idle.png | Idle",
@@ -33,6 +30,7 @@ exports.run = async (bot, message, args) => {
   .setColor("RANDOM")
   .setThumbnail(user.displayAvatarURL())
   .addField("Username", user.username)
+  .addField("User ID", user.id)
   .addField("Account Type", Bot)
   .addField("Account Created", `${buat} Since (${jm} Day's Ago)`)
   .addField("User Status", status)

@@ -6,9 +6,8 @@ exports.run = async (bot, message, args) => {
   let masuk = args.slice(1).join(" ");
   let user = message.mentions.users.first() || bot.users.cache.find(x => x.username === masuk) || bot.users.cache.get(masuk) || message.author;
   if(!isNaN(args[0])) user = message.guild.members.cache.get(args[0]).user;
-  if(!user) return message.channel.send("sorry the member you entered is not here, please enter the member who is here").then(m => {
-    m.delete({ timeout: 4000});
-  });
+  
+  let member = message.guild.members.cache.get(user.id);
 
   let stat = {
       "online": "https://emoji.gg/assets/emoji/9166_online.png | Online",
@@ -19,7 +18,8 @@ exports.run = async (bot, message, args) => {
 
   let pre = stat[user.presence.status];
   let image = pre.split(" | ")[0];
-  let status = pre.split(" | ")[1];
+  let status = pre.split(" | ")[1]; 
+
   let nickname = member.nickname ? member.nickname : "null";
   let role = "";
 
@@ -42,9 +42,9 @@ exports.run = async (bot, message, args) => {
   let Bot = user.bot ? "Bot" : "Human";
 
    const embed = new discord.MessageEmbed()
-  .setAuthor(user.tag,user.displayAvatarURL())
+  .setAuthor(user.tag,user.displayAvatarURL({ dynamic: true }))
   .setColor("RANDOM")
-  .setThumbnail(user.displayAvatarURL())
+  .setThumbnail(user.displayAvatarURL({ dynamic: true}))
   .addField("Username", user.username)
   .addField("Nickname", nickname)
   .addField("User ID", user.id)
