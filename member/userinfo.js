@@ -26,9 +26,9 @@ exports.run = async (bot, message, args) => {
   let Bot = user.bot ? "Bot" : "Human";
 
    const embed = new discord.MessageEmbed()
-  .setAuthor(user.tag,user.displayAvatarURL())
+  .setAuthor(user.tag,user.displayAvatarURL({ dynamic: true }))
   .setColor("RANDOM")
-  .setThumbnail(user.displayAvatarURL())
+  .setThumbnail(user.displayAvatarURL({ dynamic: true }))
   .addField("Username", user.username)
   .addField("User ID", user.id)
   .addField("Account Type", Bot)
