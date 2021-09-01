@@ -20,7 +20,6 @@ const ms = require("ms");
 
 const { prefix, TOKEN, developer } = require("./util/main");
 const { get } = require("node-superfetch");
-require("./handler/module.js")(bot);
 
 let PREFIX = prefix;
 
@@ -70,6 +69,7 @@ bot.giveaways = new GiveawaysManager(bot, {
   reaction: "🎉"
 });
 bot.antijoins = new Collection();
+require("./handler/module.js")(bot);
 
 //const commandFiles = fs.readdirSync("./commands").filter(file => file.endsWith(".js"));
 //for(const file of commandFiles) {
