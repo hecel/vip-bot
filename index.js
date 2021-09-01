@@ -69,8 +69,9 @@ bot.giveaways = new GiveawaysManager(bot, {
   reaction: "🎉"
 });
 bot.antijoins = new Collection();
-require("./handler/module.js")(bot);
-
+["module"].forEach(handler => {
+    require(`./handler/${handler}`)(bot);
+});
 //const commandFiles = fs.readdirSync("./commands").filter(file => file.endsWith(".js"));
 //for(const file of commandFiles) {
   //const command = require(`./commands/${file}`);
