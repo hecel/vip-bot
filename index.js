@@ -135,7 +135,7 @@ bot.on("messageUpdate", async(oldMessage, message) => {
   }
 });
 bot.on("guildMemberAdd", async(member, message) => {
-    const getCollection = bot.antijoins.has(message.guild.id);
+    const getCollection = bot.antijoins.get(message.guild.id);
     if(!getCollection) return;
     if(!getCollection.includes(member.user)) {
         getCollection.push(member.user);
