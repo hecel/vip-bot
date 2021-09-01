@@ -21,12 +21,12 @@ module.exports = {
             });
         } else if(query === "off") {
             if(!getCollection) return message.channel.send("Antijoin is already disabled!").then(m => {
-                m.delete({ timeout: 4000});
+                m.delete({ timeout: 10000});
             });
 
             bot.antijoins.delete(message.guild.id);
             message.channel.send("Turned off antijoin sytem.").then(m => {
-                m.delete({ timeout: 4000 });
+                m.delete({ timeout: 10000 });
             });
         } else if(query === "list") {
             if(!getCollection) return message.channel.send("Antijoin is enabled!");
