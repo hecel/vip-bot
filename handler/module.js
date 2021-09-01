@@ -11,7 +11,7 @@ module.exports = (bot) => {
         const commands = readdirSync(`${process.cwd()}/members/${dir}/`).filter(file => file.endsWith(".js"));
         
         for (let file of commands) {
-            let pull = require(`${process.cwd()}/members/${file}`);
+            let pull = require(`${process.cwd()}/members/${dir}/${file}`);
     
             if (pull.name) {
                 client.commands.set(pull.name, pull);
