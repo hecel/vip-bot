@@ -140,7 +140,8 @@ bot.on("guildMemberAdd", async(member, message) => {
     if(!getCollection.includes(member.user)) {
         getCollection.push(member.user);
     }
-    member.kick({ reason: "antijoin was enabled"});
+    member.send(`You have been kicked with reason: **Antijoin was enabled**`)
+    member.kick({ reason: "Antijoin was enabled"});
 
     let guild = member.guild;
     let server = guild.name;
