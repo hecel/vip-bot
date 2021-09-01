@@ -21,6 +21,11 @@ const ms = require("ms");
 const { prefix, TOKEN, developer } = require("./util/main");
 const { get } = require("node-superfetch");
 
+bot.antijoins = new Collection();
+["module"].forEach(handler => {
+    require(`./handler/${handler}`)(bot);
+});
+
 let PREFIX = prefix;
 
 app.get("/", (req, res) => {
@@ -68,10 +73,7 @@ bot.giveaways = new GiveawaysManager(bot, {
   embedColor: "GOLD",
   reaction: "🎉"
 });
-bot.antijoins = new Collection();
-["module"].forEach(handler => {
-    require(`./handler/${handler}`)(bot);
-});
+
 //const commandFiles = fs.readdirSync("./commands").filter(file => file.endsWith(".js"));
 //for(const file of commandFiles) {
   //const command = require(`./commands/${file}`);
