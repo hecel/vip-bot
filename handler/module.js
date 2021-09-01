@@ -8,7 +8,7 @@ module.exports = (bot) => {
   
   readdirSync(`./commands/`).forEach(dir => {
       
-        const commands = readdirSync(`./commands/${dir}/`).filter(file => file.endsWith(".js"));
+        const commands = readdirSync(`./commands/${dir}`).filter(file => file.endsWith(".js"));
         
         for (let file of commands) {
             let pull = require(`../commands/${dir}/${file}`);
