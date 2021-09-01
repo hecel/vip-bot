@@ -1,5 +1,5 @@
 const { MessageEmbed, version: djsversion } = require("discord.js");
-const { version } = require("../package.json");
+//const { version } = require("../package.json");
 const osutils = require('os-utils');
 const os = require('os');
 
@@ -52,10 +52,10 @@ module.exports = {
 • Channels    :: ${bot.channels.cache.size}
 • Commands    :: ${bot.commands.size}
 • ID          :: ${bot.user.id}` + '```')
-      .addField('📦・Package Information', '```' + `
-• Version     :: v${version}
-• Node.js     :: ${process.version}
-• Discord.js  :: v${djsversion}` + '```')
+//       .addField('📦・Package Information', '```' + `
+// • Version     :: v${version}
+// • Node.js     :: ${process.version}
+// • Discord.js  :: v${djsversion}` + '```')
       .addField('📋・OS Information', '```' + `
 • Platform    :: ${process.platform}
 • Arch        :: ${os.arch()}
