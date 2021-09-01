@@ -25,7 +25,7 @@ exports.run = async(bot, message, args) => {
   .setColor("BLUE");
 
   const embed5 = new Discord.MessageEmbed()
-  .addField("**__MODERATOR__**", `kick\nban\nchannel-delete\nservericon\nwarn\nunwarn\nmute\nunmute\nnuke\ncc\ncn\nsetprefix\nsetnick\nslowmode\nlock\nunlock`)
+  .addField("**__MODERATOR__**", `kick\nban\nchannel-delete\nservericon\nwarn\nunwarn\nmute\nunmute\nnuke\ncc\ncn\nsetprefix\nsetnick\nslowmode\nlock\nunlock\nantijoin`)
   .setColor("BLUE");
 
   const embed6 = new Discord.MessageEmbed()
