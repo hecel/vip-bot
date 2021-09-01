@@ -68,7 +68,7 @@ bot.giveaways = new GiveawaysManager(bot, {
   embedColor: "GOLD",
   reaction: "🎉"
 });
-bot.antijoin = new Collection();
+bot.antijoins = new Collection();
 
 //const commandFiles = fs.readdirSync("./commands").filter(file => file.endsWith(".js"));
 //for(const file of commandFiles) {
@@ -135,7 +135,7 @@ bot.on("messageUpdate", async(oldMessage, message) => {
   }
 });
 bot.on("guildMemberAdd", async(member, message) => {
-    const getCollection = bot.antijoin.has(message.guild.id);
+    const getCollection = bot.antijoins.has(message.guild.id);
     if(!getCollection) return;
     if(!getCollection.includes(member.user)) {
         getCollection.push(member.user);

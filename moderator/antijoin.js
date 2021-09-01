@@ -9,7 +9,7 @@ module.exports = {
         let query = args[1];
         if(!query) return message.channel.send("Please specify a query!");
 
-        const getCollection = bot.antijoin.get(message.guild.id);
+        const getCollection = bot.antijoins.has(message.guild.id);
         if(query === "on") {
             if(getCollection) return message.channel.send("Antijoin is already enabled!").then(m => {
                 m.delete({ timeout: 4000});
