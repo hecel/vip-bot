@@ -142,14 +142,9 @@ bot.on("guildMemberAdd", async(member, message) => {
     // }
     if(bot.antijoins.get(member.guild.id)) {
         if(!member.guild.me.permissions.has("KICK_MEMBERS")) return;
-
-        try{
-            await member.send(`You have been kicked with reason: **Antijoin was enabled**`);
-        } catch(err) {
-            console.log(err);
-        }
+        await member.send(`You have been kicked with reason: **Antijoin was enabled**`);
+        await member.kick({ reason: "Antijoin was enabled"});
     }
-    member.kick({ reason: "Antijoin was enabled"});
 
     let guild = member.guild;
     let server = guild.name;
