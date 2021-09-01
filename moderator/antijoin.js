@@ -15,7 +15,7 @@ module.exports = {
                 m.delete({ timeout: 4000});
             });
 
-            getCollection.set(message.guild.id, []);
+            bot.antijoins.set(message.guild.id, []);
             message.channel.send("Turned on antijoin sytem.").then(m => {
                 m.delete({ timeout: 4000});
             });
@@ -24,7 +24,7 @@ module.exports = {
                 m.delete({ timeout: 4000});
             });
 
-            getCollection.delete(message.guild.id);
+            bot.antijoins.delete(message.guild.id);
             message.channel.send("Turned off antijoin sytem.").then(m => {
                 m.delete({ timeout: 4000 });
             });
