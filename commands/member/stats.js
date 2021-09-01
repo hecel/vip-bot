@@ -1,5 +1,5 @@
 const { MessageEmbed, version: djsversion } = require("discord.js");
-const { version } = require('../package.json'); 
+const { version } = require("package.json");
 const osutils = require('os-utils');
 const os = require('os');
 
