@@ -20,7 +20,6 @@ const ms = require("ms");
 
 const { prefix, TOKEN, developer } = require("./util/main");
 const { get } = require("node-superfetch");
-require("./handler/module.js")(bot);
 
 let PREFIX = prefix;
 
@@ -136,12 +135,12 @@ bot.on("messageUpdate", async(oldMessage, message) => {
   }
 });
 bot.on("guildMemberAdd", async(member, message) => {
-    // const getCollection = antijoin.get(message.guild.id);
-    // if(!getCollection) return;
-    // if(!getCollection.includes(member.user)) {
-    //     getCollection.push(member.user);
-    // }
-    // member.kick({ reason: "antijoin was enabled"});
+    const getCollection = antijoin.get(message.guild.id);
+    if(!getCollection) return;
+    if(!getCollection.includes(member.user)) {
+        getCollection.push(member.user);
+    }
+    member.kick({ reason: "antijoin was enabled"});
 
     let guild = member.guild;
     let server = guild.name;
