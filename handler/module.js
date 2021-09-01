@@ -6,12 +6,12 @@ table.setHeading('Command', 'Load status');
 
 module.exports = (bot) => {
   
-  readdirSync(`${process.cwd()}/commands/`).forEach(dir => {
+  readdirSync(`./commands/`).forEach(dir => {
       
-        const commands = readdirSync(`${process.cwd()}/commands/${dir}/`).filter(file => file.endsWith(".js"));
+        const commands = readdirSync(`./commands/${dir}/`).filter(file => file.endsWith(".js"));
         
         for (let file of commands) {
-            let pull = require(`${process.cwd()}/commands/${dir}/${file}`);
+            let pull = require(`./commands/${dir}/${file}`);
     
             if (pull.name) {
                 bot.commands.set(pull.name, pull);
