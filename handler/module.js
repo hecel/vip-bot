@@ -21,7 +21,7 @@ module.exports = (bot) => {
                 continue;
             }
     
-            if (pull.aliases && Array.isArray(pull.aliases)) pull.aliases.forEach(alias => client.aliases.set(alias, pull.name));
+            if (pull.aliases && Array.isArray(pull.aliases)) pull.aliases.forEach(alias => bot.aliases.set(alias, pull.name));
         }
     });
 
