@@ -137,8 +137,8 @@ bot.on("messageUpdate", async(oldMessage, message) => {
 bot.on("guildMemberAdd", async(member, message) => {
     const getCollection = bot.antijoins.get(member.guild.id);
     if(!getCollection) return;
-    if(!getCollection.includes(member.user)) {
-        getCollection.push(member.user);
+    if(!bot.antijoins.includes(member.user)) {
+        bot.antijoins.push(member.user);
     }
     member.send(`You have been kicked with reason: **Antijoin was enabled**`)
     member.kick({ reason: "Antijoin was enabled"});
