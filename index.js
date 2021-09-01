@@ -69,7 +69,7 @@ bot.giveaways = new GiveawaysManager(bot, {
   embedColor: "GOLD",
   reaction: "🎉"
 });
-const antijoin = new Collection();
+bot.antijoin = new Collection();
 
 //const commandFiles = fs.readdirSync("./commands").filter(file => file.endsWith(".js"));
 //for(const file of commandFiles) {

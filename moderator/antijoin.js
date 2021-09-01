@@ -1,5 +1,5 @@
 const { Collection } = require("discord.js");
-const antijoin = require("./index.js");
+const antijoin = new Collection();
 
 module.exports = {
     name: "antijoin",
@@ -9,13 +9,13 @@ module.exports = {
         let query = args[1];
         if(!query) return message.channel.send("Please specify a query!");
 
-        const getCollection = antijoin.get(message.guild.id);
+        const getCollection = bot.antijoin.get(message.guild.id);
         if(query === "on") {
             if(getCollection) return message.channel.send("Antijoin is already enabled!").then(m => {
                 m.delete({ timeout: 4000});
             });
 
-            antijoin.set(message.guild.id, []);
+            getCollection.set(message.guild.id, []);
             message.channel.send("Turned on antijoin sytem.").then(m => {
                 m.delete({ timeout: 4000});
             });
@@ -24,7 +24,7 @@ module.exports = {
                 m.delete({ timeout: 4000});
             });
 
-            antijoin.delete(message.guild.id);
+            getCollection.delete(message.guild.id);
             message.channel.send("Turned off antijoin sytem.").then(m => {
                 m.delete({ timeout: 4000 });
             });
