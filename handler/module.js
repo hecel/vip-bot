@@ -4,7 +4,7 @@ const ascii = require("ascii-table");
 let table = new ascii('Commands');
 table.setHeading('Command', 'Load status');
 
-module.exports = (bot) => {
+module.exports = (bot, message, args) => {
   
   readdirSync(`${process.cwd()}/commands/`).forEach(dir => {
       
