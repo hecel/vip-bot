@@ -17,6 +17,7 @@
     "@discordjs/opus": "^0.6.0",
     "@iamtraction/google-translate": "^1.1.2",
     "aki-api": "^5.1.1",
+    "ascii-table": "0.0.9",
     "colors": "^1.4.0",
     "discord-buttons": "^4.0.0",
     "discord-giveaways": "^4.2.1",
