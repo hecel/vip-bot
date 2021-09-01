@@ -135,12 +135,20 @@ bot.on("messageUpdate", async(oldMessage, message) => {
   }
 });
 bot.on("guildMemberAdd", async(member, message) => {
-    const getCollection = bot.antijoins.get(member.guild.id);
+    const getCollection = bot.antijoins(member.guild.id);
     if(!getCollection) return;
-    if(!bot.antijoins.includes(member.user)) {
-        bot.antijoins.push(member.user);
+    // if(!bot.antijoins.includes(member.user)) {
+    //     bot.antijoins.push(member.user);
+    // }
+    if(bot.antijoins.get(member.guild.id)) {
+        if(!member.guild.me.permissions.has("KICK_MEMBERS")) return;
+
+        try{
+            await member.send(`You have been kicked with reason: **Antijoin was enabled**`);
+        } catch(err) {
+            console.log(err);
+        }
     }
-    member.send(`You have been kicked with reason: **Antijoin was enabled**`)
     member.kick({ reason: "Antijoin was enabled"});
 
     let guild = member.guild;
