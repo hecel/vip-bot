@@ -55,6 +55,12 @@ bot.on("ready", () => {
     }
     setInterval(time, 10000);
 });
+bot.on("shardDisconnect", async(event, id) => {
+    console.log(`[SHARD] Shard ${id} disconnected (${event.code})`);
+});
+bot.on("shardReconnecting", async(id) => {
+    console.log(`[SHARD] Shard ${id} conntecting ${id.toFixed}`);
+});
 
 bot.snipes = new Map();
 bot.edits = new Map();
