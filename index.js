@@ -256,7 +256,7 @@ bot.on("message", async(message) => {
   command = command.slice(prefix.length);
   message.prefix = prefix;
   
- // bot.commands.get(command) || bot.commands.find(cmd => cmd.aliases && cmd.aliases.includes(command));
+  bot.commands.get(command) || bot.commands.find(cmd => cmd.aliases && cmd.aliases.includes(command));
   
   //const cmd = bot.commands.get(command) || bot.commands.find(cmd => cmd.aliases && cmd.aliases.includes(command));
   //if(cmd) {
