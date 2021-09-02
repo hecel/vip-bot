@@ -26,7 +26,7 @@ module.exports = {
             message.channel.send(embed);
         }).catch((error) => {
             message.channel.send("There was an error finding this server");
-            throw error;
+            //throw error;
         });
     }
 }
