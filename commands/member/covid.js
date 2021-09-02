@@ -6,7 +6,7 @@ const { MessageButton } = require("discord-buttons");
 module.exports = {
   name: "corona",
   category: "info",
-  description: ":emoji_117~1: **GET THE STATUS OF COUNTRY COVID** :emoji_117~1:",
+  //description: ":emoji_117~1: **GET THE STATUS OF COUNTRY COVID** :emoji_117~1:",
   usage: "corona all or corona <country>",
   aliases: ["covid", "covid19"],
   run: async (bot, message, args) => {
