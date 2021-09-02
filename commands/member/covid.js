@@ -8,7 +8,7 @@ module.exports = {
   category: "info",
   //description: ":emoji_117~1: **GET THE STATUS OF COUNTRY COVID** :emoji_117~1:",
   usage: "corona all or corona <country>",
-  aliases: ["covid", "covid19"],
+  aliases: ["cr"],
   run: async (bot, message, args) => {
     
     api.settings({
