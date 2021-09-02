@@ -12,7 +12,7 @@ module.exports = {
       .setColor("#F8AA2A");
       //.addField(`**${message.prefix}${cmd.name} ${cmd.aliases ? `(${cmd.aliases})` : ""}**`, `${cmd.description ? cmd.description : "null"}`, true);
 
-    commands.cache.map((cmd) => {
+    commands.map((cmd) => {
       helpEmbed.addField(`**${message.prefix}${cmd.name} ${cmd.aliases ? `(${cmd.aliases})` : ""}**`, `${cmd.description ? cmd.description : "null"}`, true);
     });
 
