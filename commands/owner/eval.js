@@ -15,9 +15,6 @@ const prefix = config ? config.prefix : null;
 module.exports = {
   name: "eval",
   aliases: ["e", "ev"],
-  description: "evaled code",
-  usage: "W!eval",
-  example: "W!eval bot",
   run: async(bot, message, Util) => {
   
     const msg = message;
