@@ -260,8 +260,8 @@ bot.on("message", async(message) => {
  // bot.commands.get(command) || bot.commands.find(cmd => cmd.aliases && cmd.aliases.includes(command));
   
   const cmd = bot.commands.get(command) || bot.commands.find(cmd => cmd.aliases && cmd.aliases.includes(command));
-  const cmds = bot.premiums.get(command) || bot.premiums.find(cmds => cmds.premiums && cmds.premiums.includes(command));
-  cmd = cmds;
+//   const cmds = bot.premiums.get(command) || bot.premiums.find(cmds => cmds.premiums && cmds.premiums.includes(command));
+//   cmd = cmds;
   if(cmd) {
    cmd.run(bot, message, args);
   } else return;
