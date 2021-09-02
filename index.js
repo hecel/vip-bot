@@ -60,6 +60,7 @@ bot.snipes = new Map();
 bot.edits = new Map();
 bot.commands = new Collection();
 bot.aliases = new Collection();
+bot.premiums = new Collection();
 bot.hatebin = new Map();
 bot.developers = developer;
 bot.giveaways = new GiveawaysManager(bot, {
@@ -259,6 +260,8 @@ bot.on("message", async(message) => {
  // bot.commands.get(command) || bot.commands.find(cmd => cmd.aliases && cmd.aliases.includes(command));
   
   const cmd = bot.commands.get(command) || bot.commands.find(cmd => cmd.aliases && cmd.aliases.includes(command));
+  const cmds = bot.premiums.get(command) || bot.premiums.find(cmds => cmds.premiums && cmds.premiums.includes(command));
+  cmd = cmds;
   if(cmd) {
    cmd.run(bot, message, args);
   } else return;
