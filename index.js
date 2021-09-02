@@ -256,12 +256,12 @@ bot.on("message", async(message) => {
   command = command.slice(prefix.length);
   message.prefix = prefix;
   
-  bot.commands.get(command) || bot.commands.find(cmd => cmd.aliases && cmd.aliases.includes(command));
+ // bot.commands.get(command) || bot.commands.find(cmd => cmd.aliases && cmd.aliases.includes(command));
   
-  //const cmd = bot.commands.get(command) || bot.commands.find(cmd => cmd.aliases && cmd.aliases.includes(command));
-  //if(cmd) {
-   // cmd.execute(bot, message, args);
-  //} else return;
+  const cmd = bot.commands.get(command) || bot.commands.find(cmd => cmd.aliases && cmd.aliases.includes(command));
+  if(cmd) {
+   cmd.execute(bot, message, args);
+  } else return;
 
   //sistem cooldown
   let { cooldown } = require("./cooldown.js");
@@ -384,19 +384,19 @@ bot.on("message", async(message) => {
     
   }
   try {
-    const commandFile = require(`./commands/moderator/${command}.js`);
+    const commandFile = require(`./commands/moderator/${cmd}.js`);
     commandFile.run(bot, message, args);
   } catch(error) {
     
   }
   try {
-    const commandFile = require(`./commands/member/${command}.js`);
+    const commandFile = require(`./commands/member/${cmd}.js`);
     commandFile.run(bot, message, args);
   } catch(error) {
     
   }
   try {
-    const commandFile = require(`./commands/giveaway/${command}.js`);
+    const commandFile = require(`./commands/giveaway/${cmd}.js`);
     commandFile.run(bot, message, args);
   } catch(error) {
     
