@@ -9,16 +9,12 @@ module.exports = {
     let helpEmbed = new MessageEmbed()
       .setTitle("list command")
       .setDescription("this is a help command")
-      .setColor("#F8AA2A")
-      .addField(`**${message.prefix}${cmd.name} ${cmd.aliases ? `(${cmd.aliases})` : ""}**`, `${cmd.description ? cmd.description : "null"}`, true);
+      .setColor("#F8AA2A");
+      //.addField(`**${message.prefix}${cmd.name} ${cmd.aliases ? `(${cmd.aliases})` : ""}**`, `${cmd.description ? cmd.description : "null"}`, true);
 
-    // commands.forEach((cmd) => {
-    //   helpEmbed.addField(
-    //     `**${message.prefix}${cmd.name} ${cmd.aliases ? `(${cmd.aliases})` : ""}**`,
-    //     `${cmd.description ? cmd.description : "null"}`,
-    //     true
-    //   );
-    // });
+    commands.forEach((cmd) => {
+      helpEmbed.addField(`**${message.prefix}${cmd.name} ${cmd.aliases ? `(${cmd.aliases})` : ""}**`, `${cmd.description ? cmd.description : "null"}`, true);
+    });
 
     helpEmbed.setTimestamp();
 
