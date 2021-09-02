@@ -4,7 +4,7 @@ module.exports = {
   name: "help",
   aliases: ["h"],
   run: async(bot, message, args) => {
-    let commands = bot.commands.array();
+    let commands = bot.commands;
 
     let helpEmbed = new MessageEmbed()
       .setTitle("list command")
