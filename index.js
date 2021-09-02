@@ -260,7 +260,7 @@ bot.on("message", async(message) => {
   
   const cmd = bot.commands.get(command) || bot.commands.find(cmd => cmd.aliases && cmd.aliases.includes(command));
   if(cmd) {
-   cmd.execute(bot, message, args);
+   cmd.run(bot, message, args);
   } else return;
 
   //sistem cooldown
