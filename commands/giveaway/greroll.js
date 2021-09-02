@@ -2,7 +2,8 @@ const ms = require("ms");
 const { MessageEmbed } = require("discord.js");
 
 module.exports = {
-    name: "reroll",
+    name: "greroll",
+    aliases: ["reroll"],
     run: async(bot, message, args) => {
         if(!message.member.hasPermission("MANGE_MESSAGES")) return message.channel.send("You dont have permission to run this command!");
 

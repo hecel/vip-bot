@@ -1,7 +1,8 @@
 const ms = require("ms");
 
 module.exports = {
-    name: "end",
+    name: "gedit",
+    aliases: ["edit"],
     run: async(bot, message, args) => {
         if(!message.member.hasPermission("MANGE_MESSAGES")) return message.channel.send("You dont have permission to run this command!");
 

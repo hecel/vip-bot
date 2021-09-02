@@ -8,7 +8,8 @@ try {
 }
 
 module.exports = {
-    name: "giveaways",
+    name: "gstart",
+    aliases: ["start"],
     run: async(bot, message, args) => {
         if(!message.member.hasPermission("MANGE_MESSAGES")) return message.channel.send("You dont have permission to run this command!");
 
