@@ -1,13 +1,9 @@
 const { MessageEmbed } = require("discord.js");
-const { LOCALE } = require("../util/EvobotUtil");
-const i18n = require("i18n");
-
-i18n.setLocale(LOCALE);
 
 module.exports = {
   name: "help",
   aliases: ["h"],
-  execute(message) {
+  run: async(bot, message, args) => {
     let commands = message.client.commands.array();
 
     let helpEmbed = new MessageEmbed()
