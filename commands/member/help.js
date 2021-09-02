@@ -4,14 +4,14 @@ module.exports = {
   name: "help",
   aliases: ["h"],
   run: async(bot, message, args) => {
-    let commands = bot.commands;
+    let commands = bot.commands.array();
 
     let helpEmbed = new MessageEmbed()
       .setTitle("list command")
       .setDescription("this is a help command")
       .setColor("#F8AA2A");
 
-    commands.forEach((cmd) => {
+    commands((cmd) => {
       helpEmbed.addField(
         `**${message.prefix}${cmd.name} ${cmd.aliases ? `(${cmd.aliases})` : ""}**`,
         `${cmd.description ? cmd.description : "null"}`,
