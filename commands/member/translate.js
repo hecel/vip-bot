@@ -3,6 +3,7 @@ const Discord = require("discord.js");
 
 module.exports = {
     name: "translate",
+    aliases: ["tr"],
     run: async(bot, message, args) => {
         let text = args.slice(2).join(" ");
         let lang = args[1];

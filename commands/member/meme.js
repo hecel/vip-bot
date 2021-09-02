@@ -3,6 +3,7 @@ const fetch = require('superagent');
 
 module.exports = {
   name: 'meme',
+  aliases: ["mem"],
   run: async(bot, message, args) => {
     
    let subreddits = [

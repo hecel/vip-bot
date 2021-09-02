@@ -8,7 +8,9 @@ try {
 
 const prefix = config ? config.prefix : null;
 
-module.exports = { 
+module.exports = {
+    name: "akinator",
+    aliases: ["aki"], 
     run: async(bot, message, args) => {
         const { Aki } = require("aki-api");
         const {list, verify} = require("../util/function");

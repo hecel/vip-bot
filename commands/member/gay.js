@@ -1,7 +1,7 @@
 const Discord = require("discord.js");
 
 module.exports = {
-    name: "",
+    name: "gay",
     aliases: [""],
     run: async(bot, message, args) => {
         try {
