@@ -836,42 +836,41 @@ bot.on("message", async(message) => {
     return message.channel.send(embed);
   }
   try {
-    const commandFile = require(`./owner/${command}.js`);
+    const commandFile = require(`./commands/owner/${command}.js`);
     commandFile.run(bot, message, args, Util);
   } catch(error) {
     
   }
   try {
-    const commandFile = require(`./moderator/${command}.js`);
+    const commandFile = require(`./commands/moderator/${command}.js`);
     commandFile.run(bot, message, args);
   } catch(error) {
     
   }
   try {
-    const commandFile = require(`./member/${command}.js`);
+    const commandFile = require(`./commands/member/${command}.js`);
     commandFile.run(bot, message, args);
   } catch(error) {
     
   }
   try {
-    const commandFile = require(`./member/giveaway/${command}.js`);
+    const commandFile = require(`./commands/giveaway/${command}.js`);
     commandFile.run(bot, message, args);
   } catch(error) {
     
   }
-  try {
-  const commandFile = require(`./commands/${command}.js`);
-  commandFile.run(bot, message, args);
-  } catch(error) {
+//   try {
+//   const commandFile = require(`./commands/${command}.js`);
+//   commandFile.run(bot, message, args);
+//   } catch(error) {
 
-  }
-  try {
-    const commandFile = require(`../botconfig/${command}js`);
-    commandFile(bot, message, args);
-  } catch(error) {
+//   }
+//   try {
+//     const commandFile = require(`../botconfig/${command}js`);
+//     commandFile(bot, message, args);
+//   } catch(error) {
     
-  }
-  
+//   }
 });
 bot.on("message", async message => {
   let id = "786861563222163486";
