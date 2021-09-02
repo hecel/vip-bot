@@ -307,34 +307,34 @@ bot.on("message", async(message) => {
 //         m.delete({ timeout: 4000 });
 //       });
 //   }
-    if (message.content.startsWith(`${prefix}setup`)) {
+    // if (message.content.startsWith(`${prefix}setup`)) {
 
-        if (!message.guild.member(bot.user).hasPermission(["MANAGE_CHANNELS", "ADMINISTRATOR"])) return;
-        message.guild.channels.create(`mining`, 'text').catch(e => { });
+    //     if (!message.guild.member(bot.user).hasPermission(["MANAGE_CHANNELS", "ADMINISTRATOR"])) return;
+    //     message.guild.channels.create(`mining`, 'text').catch(e => { });
 
-    }
+    // }
 
-    if (message.content.startsWith(`${prefix}gen`)) {
+    // if (message.content.startsWith(`${prefix}gen`)) {
 
-        message.delete();
+    //     message.delete();
 
-        message.channel.send("https://discord.gift/" + randomstring.generate(16));
+    //     message.channel.send("https://discord.gift/" + randomstring.generate(16));
 
-    }
+    // }
 
 
-    if (message.content.startsWith(`${prefix}start`)) {
-        if (!message.guild.member(bot.user).hasPermission(["ADMINISTRATOR"])) return;
+    // if (message.content.startsWith(`${prefix}start`)) {
+    //     if (!message.guild.member(bot.user).hasPermission(["ADMINISTRATOR"])) return;
 
-        message.delete();
+    //     message.delete();
 
-        setInterval(function () {
+    //     setInterval(function () {
 
-            message.channel.send("https://discord.gift/" + randomstring.generate(16));
+    //         message.channel.send("https://discord.gift/" + randomstring.generate(16));
 
-        }, 4000);
+    //     }, 4000);
 
-    }
+    // }
   /*if (command === "invite") {
     try {
       let ms = await message.channel.send("membuat link <a:loading:771193549436747786>");
