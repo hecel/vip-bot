@@ -4,7 +4,7 @@ module.exports = {
   name: "help",
   aliases: ["h"],
   run: async(bot, message, args) => {
-    let commands = bot.commands.array();
+    let commands = require("../../handler/module.js");
 
     let helpEmbed = new MessageEmbed()
       .setTitle("list command")
@@ -12,7 +12,7 @@ module.exports = {
       .setColor("#F8AA2A");
       //.addField(`**${message.prefix}${cmd.name} ${cmd.aliases ? `(${cmd.aliases})` : ""}**`, `${cmd.description ? cmd.description : "null"}`, true);
 
-    commands.map((cmd) => {
+    commands.forEach((cmd) => {
       helpEmbed.addField(`**${message.prefix}${cmd.name} ${cmd.aliases ? `(${cmd.aliases})` : ""}**`, `${cmd.description ? cmd.description : "null"}`, true);
     });
 
