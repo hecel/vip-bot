@@ -1,8 +1,8 @@
 const Discord = require("discord.js");
 
 module.exports = {
-    name: "",
-    aliases: [""],
+    name: "ramal",
+    aliases: ["rm"],
     run: async(bot, message, args) => {
         try {
             let pertanyaan = message.content.split(" ").slice(1).join(" ");

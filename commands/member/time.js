@@ -1,8 +1,8 @@
 const Discord = require("discord.js");
 
 module.exports = {
-    name: "",
-    aliases: [""],
+    name: "time",
+    aliases: ["tm"],
     run: async(bot, message, args) => {
         try {
             const m = await message.channel.send("is setting the time...");

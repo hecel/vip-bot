@@ -5,6 +5,7 @@ const os = require('os');
 
 module.exports = {
   name: "stats",
+  aliases: ["st"],
   run: async (bot, message, args) => {
     
     let author = ["wulvies#7514", "Wolfrad#0371"];

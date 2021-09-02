@@ -1,8 +1,8 @@
 const Discord = require("discord.js");
 
 module.exports = {
-    name: "",
-    aliases: [""],
+    name: "putin",
+    aliases: ["ptn"],
     run: async(bot, message, args) => {
         let input = args.slice(1).join("+");
     let user =

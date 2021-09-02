@@ -1,8 +1,8 @@
 const Discord = require("discord.js");
 
 module.exports = {
-    name: "",
-    aliases: [""],
+    name: "nsfw",
+    aliases: ["18+"],
     run: async(bot, message, args) => {
         try {
             if (message.channel.nsfw === false)

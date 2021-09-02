@@ -2,6 +2,7 @@ const { MessageEmbed } = require('discord.js');
 
 module.exports = {
   name: 'snipe',
+  aliases: ["sp"],
   run: async(bot, message, args) => {
     
  let msg = bot.snipes.get(message.channel.id);

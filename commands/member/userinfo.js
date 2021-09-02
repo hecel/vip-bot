@@ -1,7 +1,10 @@
 const discord = require("discord.js");
 const moment = require("moment");
 
-exports.run = async (bot, message, args) => {
+module.exports = {
+    name: "userinfo",
+    aliases: ["usr"],
+    run: async (bot, message, args) => {
   
   //let masuk = args.slice(1).join(" ");
   let user = message.mentions.users.first() || message.author;
@@ -36,4 +39,5 @@ exports.run = async (bot, message, args) => {
   .addField("User Status", status)
   .setFooter(`${user.tag} Status: ${status}`, image);
   message.channel.send(embed); 
+    }
 }

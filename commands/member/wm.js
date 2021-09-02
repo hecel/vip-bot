@@ -2,6 +2,7 @@ const {MessageButton} = require("discord-buttons");
 
 module.exports = {
   name: "wikipedia-minecraft",
+  aliases: ["wm"],
   run: async(bot, message, args) => {
     
     let search = args.slice(1).join("+");

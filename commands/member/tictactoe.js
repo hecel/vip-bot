@@ -2,6 +2,7 @@ const { tictactoe } = require("reconlx");
 
 module.exports = {
     name: "tictactoe",
+    aliases: ["tictac"],
     run: async(bot, message, args) => {
         const member = message.mentions.members.first();
         if(!member) return message.channel.send("Please specify a member");

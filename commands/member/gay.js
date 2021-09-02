@@ -2,7 +2,7 @@ const Discord = require("discord.js");
 
 module.exports = {
     name: "gay",
-    aliases: [""],
+    aliases: ["gay"],
     run: async(bot, message, args) => {
         try {
             const embed = new MessageEmbed()

@@ -1,7 +1,8 @@
 const fetch = require("node-fetch");
 
 module.exports = {
-    name: "yt-t",
+    name: "youtube-together",
+    aliases: ["yt-t"],
     run: async(bot, message, args) => {
 
         let channel = message.member.voice.channel;

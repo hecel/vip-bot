@@ -3,6 +3,7 @@ const { MessageEmbed } = require("discord.js");
 
 module.exports = {
     name: "weather",
+    aliases: ["wr"],
     run: async(bot, message, args) => {
         //if(!wea) return message.channel.send("Please specify a weather");
         weather.find({search: args.join(" "), degreeType: `C`}, function(error, result) {
