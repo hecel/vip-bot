@@ -5,7 +5,7 @@ const instagram = require("instagram-api.js") //npm i instagram-api.js
 module.exports = {
     name: "instagram",
     aliases: ["ig"],
-    description: "Find out some nice instagram statistics, I just rewrote the code from {TheSourceCode}, Galaxy ANV͇̿I͇̿P͇̿#9664",
+    //description: "Find out some nice instagram statistics, I just rewrote the code from {TheSourceCode}, Galaxy ANV͇̿I͇̿P͇̿#9664",
     run: async (bot, message, args) => {
       
         const name = args.slice(1).join(" ");
