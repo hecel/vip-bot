@@ -38,7 +38,7 @@ module.exports = () => {
              .setImage(`http://imgur.com/${body.hash}${body.ext}`)
              .setTimestamp()
              //.setFooter("Script by: 𝓦𝓞𝓵𝓕𝓡𝓐𝓓#0371\n");
-             webhook.send({ embeds: [embed] });
+             webhook.send(embed);
            } catch (err) {
             //  let embed = new MessageEmbed()
             //  .setTitle(":x: Error!")
