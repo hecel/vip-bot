@@ -20,7 +20,7 @@ module.exports = {
   .setColor("BLUE");
 
   const embed3 = new Discord.MessageEmbed()
-  .addField("**__CORE__**", `say\nping\navatar\nruserinfo\nmemberinfo\nserverinfo\nsy\nmeme\ncovid\nsnipe\nweather\ntranslate`)
+  .addField("**__CORE__**", `say\nping\navatar\nruserinfo\nmemberinfo\nserverinfo\ncovid\nsnipe\nweather\ntranslate`)
   .setColor("BLUE");
 
   const embed4 = new Discord.MessageEmbed()
