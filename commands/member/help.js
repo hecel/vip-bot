@@ -24,7 +24,7 @@ module.exports = {
   .setColor("BLUE");
 
   const embed4 = new Discord.MessageEmbed()
-  .addField("**__GAME__**", `gay\nramal\nputin\nwanted\nrip\npp\nyt-t\nship\nakinator\nhangman`)
+  .addField("**__GAME__**", `gay\nramal\nputin\nwanted\nrip\nyt-t\nship\nakinator\nhangman`)
   .setColor("BLUE");
 
   const embed5 = new Discord.MessageEmbed()
