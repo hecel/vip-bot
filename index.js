@@ -274,8 +274,8 @@ bot.on("message", async(message) => {
   if(cmd) {
    cmd.run(bot, message, args);
   } else return;
+  console.log(`${message.author.tag} menggunakan command ${prefix}${command}`, `message ini dari: ${message.guild.name}`);
   try {
-      
     const commandFile = require(`./commands/owner/${command}.js`);
     commandFile.run(bot, message, args, Util);
   } catch(error) {

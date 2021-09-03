@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 const { ReactionPages } = require("reconlx");
-const choice = ["🚫", "📣", "👑", "⚜️", "🎮", "🔧", "🎉", "⚙️"];
+const choice = ["🚫", "📣", "👑", "⚜️", "🎮", "🔧", "🎉"];
 
 module.exports = {
     name: "help",
@@ -33,10 +33,6 @@ module.exports = {
 
   const embed6 = new Discord.MessageEmbed()
   .addField("**__GIVEAWAYS__**", `gstart\ngend\ngedit\ngdelete\ngreroll`)
-  .setColor("BLUE");
-
-  const embed7 = new Discord.MessageEmbed()
-  .addField("**__TOTAL COMMANDS__**", `\`52 COMMANDS\``)
   .setColor("BLUE")
   .setTimestamp();  
 //   const pages = [embed1, embed2, embed3, embed4, embed5, embed6, embed7, embed8];
@@ -83,11 +79,6 @@ module.exports = {
           case "🎉":
             reaction.users.remove(user).catch(console.error);
             m.edit(embed6);
-            break;
-
-          case "⚙️":
-            reaction.users.remove(user).catch(console.error);
-            m.edit(embed7);
 
           collector.stop();
           break;
