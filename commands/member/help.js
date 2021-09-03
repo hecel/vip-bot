@@ -24,7 +24,7 @@ module.exports = {
   .setColor("BLUE");
 
   const embed4 = new Discord.MessageEmbed()
-  .addField("**__GAME__**", `gay\nramal\nputin\nwanted\nrip\npp\nejected\nmeeting\nyt-t\nship\nakinator\nhangman`)
+  .addField("**__GAME__**", `gay\nramal\nputin\nwanted\nrip\npp\nyt-t\nship\nakinator\nhangman`)
   .setColor("BLUE");
 
   const embed5 = new Discord.MessageEmbed()
@@ -34,7 +34,7 @@ module.exports = {
   const embed6 = new Discord.MessageEmbed()
   .addField("**__GIVEAWAYS__**", `gstart\ngend\ngedit\ngdelete\ngreroll`)
   .setColor("BLUE")
-  .setTimestamp();  
+  .setTimestamp(); 
 //   const pages = [embed1, embed2, embed3, embed4, embed5, embed6, embed7, embed8];
 //   ReactionPages(message, pages, false);
   const m = await message.channel.send(embed1);
