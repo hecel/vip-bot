@@ -9,11 +9,13 @@ module.exports = {
 
         //const word = args.slice(2).join(" ");
         //if(!word) return message.channel.send("Please specify a word to guess");
-        let w = ["dream", "sapnap", "george", "jorge", "PakGM", "ElestialHD", "Malik"];
+        //let w = ["dream", "sapnap", "george", "jorge", "PakGM", "ElestialHD", "Malik"];
+        let word = args[1];
+        if(!word) return message.channel.send("Please enter words. Example: v.hangman dream");
 
         const hang = new hangman({
             message: message,
-            word: random,
+            word: word,
             client: bot,
             channelID: channel.id,
             permission: "MANAGE_MESSAGES"
