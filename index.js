@@ -78,6 +78,7 @@ bot.giveaways = new GiveawaysManager(bot, {
   reaction: "🎉"
 });
 bot.antijoins = new Collection();
+bot.antiinvites = new Collection();
 ["module"].forEach(handler => {
     require(`./handler/${handler}`)(bot);
 });
@@ -270,6 +271,27 @@ bot.on("message", async(message) => {
   const cmd = bot.commands.get(command) || bot.commands.find(cmd => cmd.aliases && cmd.aliases.includes(command));
 //   const cmds = bot.premiums.get(command) || bot.premiums.find(cmds => cmds.premiums && cmds.premiums.includes(command));
 //   cmd = cmds;
+const getCollection = bot.antiinvites.has(member.guild.id);
+    if(!getCollection) return;
+    const inviteLink = ["discord.gg/", "discord.com/invite/", "discordapp.com/invite/"];
+    if(!inviteLink.some(links => message.content.toLowerCase().includes(link))) {
+        let userCode = message.content.split(inviteLink.some(links => message.content.toLowerCase().includes(link)))[1];
+        message.guild.fetchInvites().then(invites => {
+            let inviteArray = [];
+            for(let inviteCode of invites) {
+                inviteArray.push(inviteCode[0]);
+            }
+            if(bot.antiinvites.get(member.guild.id)) {
+                if(!member.guild.me.permissions.has("KICK_MEMBERS")) return;
+                try {
+                    await member.user.send(`You have been kicked with reason: **this server was enabled antiinvite**`);
+                } catch {
+        
+                }
+                if(!inviteArray.includes(userCode)) member.kick("Antiinvite was enabled");
+            };
+        });
+    }
   if(cmd) {
    cmd.run(bot, message, args);
   } else return;

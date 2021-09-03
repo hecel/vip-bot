@@ -10,30 +10,27 @@ module.exports = {
         let query = args[1];
         if(!query) return message.channel.send("Please specify a query!");
 
-        const getCollection = bot.antijoins.get(message.guild.id);
+        const getCollection = bot.antiinvites.get(message.guild.id);
         if(query === "on") {
-            if(getCollection) return message.channel.send("Antijoin is already enabled!").then(m => {
+            if(getCollection) return message.channel.send("Antiinvite is already enabled!").then(m => {
                 m.delete({ timeout: 4000});
             });
 
-            bot.antijoins.set(message.guild.id, true);
-            message.channel.send("Turned on antijoin sytem.");
+            bot.antiinvites.set(message.guild.id, true);
+            message.channel.send("Turned on antiinvite sytem.");
             // .then(m => {
             //     m.delete({ timeout: 4000});
             // });
         } else if(query === "off") {
-            if(!getCollection) return message.channel.send("Antijoin is already disabled!").then(m => {
+            if(!getCollection) return message.channel.send("Antiinvite is already disabled!").then(m => {
                 m.delete({ timeout: 10000});
             });
 
-            bot.antijoins.delete(message.guild.id);
-            message.channel.send("Turned off antijoin sytem.");
+            bot.antiinvites.delete(message.guild.id);
+            message.channel.send("Turned off antiinvite sytem.");
             // .then(m => {
             //     m.delete({ timeout: 10000 });
             // });
-        } else if(query === "list") {
-            if(!getCollection) return message.channel.send("Antijoin is enabled!");
-            message.channel.send(`Kicked member: ${getCollection.map(value => { return `${value.tag} (${value.id})`})}`);
         }
     }
 }

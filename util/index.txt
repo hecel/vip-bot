@@ -1,0 +1,114 @@
+//sistem cooldown
+  let { cooldown } = require("./cooldown.js");
+  let cmdcooldown = cooldown;
+
+  if (!message.content.startsWith(prefix)) return;
+  
+  if (cmdcooldown.has(message.author.id)) {
+    await message.delete();
+    return message.channel.send("Hai gunakan bot ini lagi dalam 4 detik!").then(m => {
+        m.delete({ timeout: 4000 });
+      });
+  }
+
+  cmdcooldown.add(message.author.id);
+  setTimeout(() => {
+    cmdcooldown.delete(message.author.id);
+  }, 4000);
+  let channel = bot.channels.cache.get("800392235186651136");
+  const embed = new MessageEmbed();
+  console.log(`${message.author.tag} menggunakan command ${prefix}${command}`, `message ini dari: ${message.guild.name}`);
+//   if (command === "setprefix") {
+//     let staff = message.member.hasPermission(["ADMINISTRATOR"]);
+//     if (!staff)
+//       return message.reply("sorry you not have permision **__ADMINISTRATOR__**!").then(m => {
+//           m.delete({ timeout: 4000 });
+//         });
+//     let data = db.get(`prefix.${message.guild.id}`);
+
+//     let simbol = args.slice(1).join(" ");
+//     if (!simbol)
+//       return message.channel.send("please input the prefix!").then(m => {
+//         m.delete({ timeout: 4000 });
+//       });
+//     db.set(`prefix.${message.guild.id}`, simbol);
+//     message.channel.send(`??SUCSES! the server prefix has changed to: **${simbol}**\nNote: type **${simbol}default** to changed prefix default`);
+//   } else if (command === "default") {
+//     db.delete(`prefix.${message.guild.id}`);
+//     return message.channel.send("the prefix server has changed to default!").then(m => {
+//         m.delete({ timeout: 4000 });
+//       });
+//   }
+    // if (message.content.startsWith(`${prefix}setup`)) {
+
+    //     if (!message.guild.member(bot.user).hasPermission(["MANAGE_CHANNELS", "ADMINISTRATOR"])) return;
+    //     message.guild.channels.create(`mining`, 'text').catch(e => { });
+
+    // }
+
+    // if (message.content.startsWith(`${prefix}gen`)) {
+
+    //     message.delete();
+
+    //     message.channel.send("https://discord.gift/" + randomstring.generate(16));
+
+    // }
+
+
+    // if (message.content.startsWith(`${prefix}start`)) {
+    //     if (!message.guild.member(bot.user).hasPermission(["ADMINISTRATOR"])) return;
+
+    //     message.delete();
+
+    //     setInterval(function () {
+
+    //         message.channel.send("https://discord.gift/" + randomstring.generate(16));
+
+    //     }, 4000);
+
+    // }
+  /*if (command === "invite") {
+    try {
+      let ms = await message.channel.send("membuat link <a:loading:771193549436747786>");
+      setTimeout(() => {
+        const embed = new MessageEmbed()
+          .setColor("BLUE")
+          .setAuthor(message.author.tag, message.author.displayAvatarURL())
+          .setThumbnail(bot.user.displayAvatarURL({ format: "png", dynamic: true }) + "?size=")
+          .setTitle("invite")
+          .setDescription("invite saya!")
+          .addFields(
+            {
+              name: "link invite:",
+              value: "[click here!](https://bit.ly/Anime-bot)",
+              inline: true
+            },
+            {
+              name: "link official server discord Anime:",
+              value: "[join](https://discord.gg/SY4u37zqEt)",
+              inline: true
+            },
+            {
+              name: "subcribe Channel Not A Developer!:",
+              value: "[SUBCRIBE](https://www.youtube.com/watch?v=j1e7QSReo5Y)",
+              inline: true
+            },
+            {
+              name: "Join projek glitch!",
+              value: "[JOIN PROJEK](https://discord.gg/NekoPoi)",
+              inline: true
+            },
+            {
+              name: "liat muka asli ||RAHASIA||",
+              value: "[lihat](https://discord.gg/NekoPoi)",
+              inline: true
+            }
+          )
+          .setTimestamp()
+          .setFooter("Script by: BlueWolf#0371\n");
+        ms.edit("berhasil membuat link", embed);
+      }, 4000);
+    } catch (error) {
+      return message.channel.send(error.message);
+    }
+  }*/
