@@ -33,6 +33,7 @@
     "ffmpeg-static": "^4.2.7",
     "fs": "0.0.2",
     "glob": "^7.1.7",
+    "got": "^11.8.2",
     "http": "0.0.1-security",
     "humanize": "0.0.9",
     "instagram-api.js": "0.0.8",
