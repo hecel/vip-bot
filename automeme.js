@@ -29,7 +29,7 @@ module.exports = () => {
           
            try {
              
-             let embed = new MessageEmbed()
+             let embed = new Discord.MessageEmbed()
              .setColor("RANDOM")
              .setAuthor(body.title)
              .setDescription(`Score: **${body.score}**\nViews: **${body.views}**`)
