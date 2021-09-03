@@ -24,18 +24,18 @@ module.exports = () => {
            ];
           
          const { body } = fetch.get(`https://imgur.com/r/${subreddits[Math.floor(Math.random() * subreddits.length)]}/hot.json`);
-         const { data } = body;
-         const meme = data[Math.floor(Math.random() * data.length)];
+        //  const { data } = body;
+        //  const meme = data[Math.floor(Math.random() * data.length)];
           
            try {
              
              let embed = new MessageEmbed()
              .setColor("RANDOM")
-             .setAuthor(meme.title)
-             .setDescription(`Score: **${meme.score}**\nViews: **${meme.views}**`)
-             .setTitle(`${meme.subreddit}`)
-             .setURL(`https://www.reddit.com${meme.reddit}`)
-             .setImage(`http://imgur.com/${meme.hash}${meme.ext}`)
+             .setAuthor(body.title)
+             .setDescription(`Score: **${body.score}**\nViews: **${body.views}**`)
+             .setTitle(`${body.subreddit}`)
+             .setURL(`https://www.reddit.com${body.reddit}`)
+             .setImage(`http://imgur.com/${body.hash}${body.ext}`)
              .setTimestamp()
              //.setFooter("Script by: 𝓦𝓞𝓵𝓕𝓡𝓐𝓓#0371\n");
              webhook.send({ embeds: [embed] });
