@@ -24,11 +24,11 @@ module.exports = {
   .setColor("BLUE");
 
   const embed4 = new Discord.MessageEmbed()
-  .addField("**__GAME__**", `gay\nramal\nputin\nwanted\nrip\nyt-t\nship\nakinator\nhangman`)
+  .addField("**__GAME__**", `gay\nputin\nwanted\nrip\nyt-t\nship\nakinator\nhangman`)
   .setColor("BLUE");
 
   const embed5 = new Discord.MessageEmbed()
-  .addField("**__MODERATOR__**", `kick\nban\nchannel-delete\nservericon\nwarn\nunwarn\nmute\nunmute\nnuke\ncc\ncn\nsetprefix\nsetnick\nslowmode\nlock\nunlock\nantijoin`)
+  .addField("**__MODERATOR__**", `kick\nban\nchannel-delete\nservericon\nwarn\nunwarn\nmute\nunmute\nnuke\nsetnick\nslowmode\nlock\nunlock\nantijoin`)
   .setColor("BLUE");
 
   const embed6 = new Discord.MessageEmbed()
