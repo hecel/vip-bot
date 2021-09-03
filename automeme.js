@@ -24,8 +24,8 @@ module.exports = () => {
            ];
           
          const { body } = fetch.get(`https://imgur.com/r/${subreddits[Math.floor(Math.random() * subreddits.length)]}/hot.json`);
-        //const { data } = body;
-         const meme = body[Math.floor(Math.random() * body.length)];
+         const { data } = body;
+         const meme = data[Math.floor(Math.random() * data.length)];
           
            try {
              
