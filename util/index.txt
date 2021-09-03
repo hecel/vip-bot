@@ -1,3 +1,25 @@
+const getCollection = bot.antiinvites.has(member.guild.id);
+    if(!getCollection) return;
+    const inviteLink = ["discord.gg/", "discord.com/invite/", "discordapp.com/invite/"];
+    if(!inviteLink.some(links => message.content.toLowerCase().includes(link))) {
+        let userCode = message.content.split(inviteLink.some(links => message.content.toLowerCase().includes(link)))[1];
+        message.guild.fetchInvites().then(invites => {
+            let inviteArray = [];
+            for(let inviteCode of invites) {
+                inviteArray.push(inviteCode[0]);
+            }
+            if(bot.antiinvites.get(member.guild.id)) {
+                if(!member.guild.me.permissions.has("KICK_MEMBERS")) return;
+                try {
+                    member.user.send(`You have been kicked with reason: **this server was enabled antiinvite**`);
+                } catch {
+        
+                }
+                if(!inviteArray.includes(userCode)) member.kick("Antiinvite was enabled");
+            };
+        });
+    }
+
 //sistem cooldown
   let { cooldown } = require("./cooldown.js");
   let cmdcooldown = cooldown;

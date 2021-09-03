@@ -15,7 +15,7 @@ const express = require("express");
 const app = express();
 const http = require("http");
 const ms = require("ms");
-const automeme = require("./automeme");
+//const automeme = require("./automeme");
 //const timeSpan = ms("2 days");
 //require("discord-buttons")(bot);
 
@@ -45,17 +45,17 @@ bot.on("ready", () => {
   console.log("bot sudah online");
     
     bot.user.setStatus("dnd");
-    automeme();
+    //automeme();
 
-    // function time() {
-    //     let waktu = bot.channels.cache.get("878427894332936203");
-    //     waktu.setName(`${timezone().tz("Asia/Jakarta").format("⌚ HH:mm [WIB]") + " "}`);
-    //     let waktu1 = bot.channels.cache.get("878430437884723210");
-    //     waktu1.setName(`${timezone().tz("Asia/Irkutsk").format("⌚ HH:mm [WIT]") + " "}`);
-    //     let waktu2 = bot.channels.cache.get("878430913548124270");
-    //     waktu2.setName(`${timezone().tz("Asia/Jayapura").format("⌚ HH:mm [WITA]") + " "}`);
-    // }
-    // setInterval(time, 10000);
+    function time() {
+        let waktu = bot.channels.cache.get("878427894332936203");
+        waktu.setName(`${timezone().tz("Asia/Jakarta").format("⌚ HH:mm [WIB]") + " "}`);
+        let waktu1 = bot.channels.cache.get("878430437884723210");
+        waktu1.setName(`${timezone().tz("Asia/Irkutsk").format("⌚ HH:mm [WIT]") + " "}`);
+        let waktu2 = bot.channels.cache.get("878430913548124270");
+        waktu2.setName(`${timezone().tz("Asia/Jayapura").format("⌚ HH:mm [WITA]") + " "}`);
+    }
+    setInterval(time, 10000);
 });
 bot.on("shardDisconnect", async(event, id) => {
     console.log(`[SHARD] Shard ${id} disconnected (${event.code})`);
@@ -271,146 +271,11 @@ bot.on("message", async(message) => {
   const cmd = bot.commands.get(command) || bot.commands.find(cmd => cmd.aliases && cmd.aliases.includes(command));
 //   const cmds = bot.premiums.get(command) || bot.premiums.find(cmds => cmds.premiums && cmds.premiums.includes(command));
 //   cmd = cmds;
-const getCollection = bot.antiinvites.has(member.guild.id);
-    if(!getCollection) return;
-    const inviteLink = ["discord.gg/", "discord.com/invite/", "discordapp.com/invite/"];
-    if(!inviteLink.some(links => message.content.toLowerCase().includes(link))) {
-        let userCode = message.content.split(inviteLink.some(links => message.content.toLowerCase().includes(link)))[1];
-        message.guild.fetchInvites().then(invites => {
-            let inviteArray = [];
-            for(let inviteCode of invites) {
-                inviteArray.push(inviteCode[0]);
-            }
-            if(bot.antiinvites.get(member.guild.id)) {
-                if(!member.guild.me.permissions.has("KICK_MEMBERS")) return;
-                try {
-                    await member.user.send(`You have been kicked with reason: **this server was enabled antiinvite**`);
-                } catch {
-        
-                }
-                if(!inviteArray.includes(userCode)) member.kick("Antiinvite was enabled");
-            };
-        });
-    }
   if(cmd) {
    cmd.run(bot, message, args);
   } else return;
-
-  //sistem cooldown
-  let { cooldown } = require("./cooldown.js");
-  let cmdcooldown = cooldown;
-
-  if (!message.content.startsWith(prefix)) return;
-  
-  if (cmdcooldown.has(message.author.id)) {
-    await message.delete();
-    return message.channel.send("Hai gunakan bot ini lagi dalam 4 detik!").then(m => {
-        m.delete({ timeout: 4000 });
-      });
-  }
-
-  cmdcooldown.add(message.author.id);
-  setTimeout(() => {
-    cmdcooldown.delete(message.author.id);
-  }, 4000);
-  let channel = bot.channels.cache.get("800392235186651136");
-  const embed = new MessageEmbed();
-  console.log(`${message.author.tag} menggunakan command ${prefix}${command}`, `message ini dari: ${message.guild.name}`);
-//   if (command === "setprefix") {
-//     let staff = message.member.hasPermission(["ADMINISTRATOR"]);
-//     if (!staff)
-//       return message.reply("sorry you not have permision **__ADMINISTRATOR__**!").then(m => {
-//           m.delete({ timeout: 4000 });
-//         });
-//     let data = db.get(`prefix.${message.guild.id}`);
-
-//     let simbol = args.slice(1).join(" ");
-//     if (!simbol)
-//       return message.channel.send("please input the prefix!").then(m => {
-//         m.delete({ timeout: 4000 });
-//       });
-//     db.set(`prefix.${message.guild.id}`, simbol);
-//     message.channel.send(`💡SUCSES! the server prefix has changed to: **${simbol}**\nNote: type **${simbol}default** to changed prefix default`);
-//   } else if (command === "default") {
-//     db.delete(`prefix.${message.guild.id}`);
-//     return message.channel.send("the prefix server has changed to default!").then(m => {
-//         m.delete({ timeout: 4000 });
-//       });
-//   }
-    // if (message.content.startsWith(`${prefix}setup`)) {
-
-    //     if (!message.guild.member(bot.user).hasPermission(["MANAGE_CHANNELS", "ADMINISTRATOR"])) return;
-    //     message.guild.channels.create(`mining`, 'text').catch(e => { });
-
-    // }
-
-    // if (message.content.startsWith(`${prefix}gen`)) {
-
-    //     message.delete();
-
-    //     message.channel.send("https://discord.gift/" + randomstring.generate(16));
-
-    // }
-
-
-    // if (message.content.startsWith(`${prefix}start`)) {
-    //     if (!message.guild.member(bot.user).hasPermission(["ADMINISTRATOR"])) return;
-
-    //     message.delete();
-
-    //     setInterval(function () {
-
-    //         message.channel.send("https://discord.gift/" + randomstring.generate(16));
-
-    //     }, 4000);
-
-    // }
-  /*if (command === "invite") {
-    try {
-      let ms = await message.channel.send("membuat link <a:loading:771193549436747786>");
-      setTimeout(() => {
-        const embed = new MessageEmbed()
-          .setColor("BLUE")
-          .setAuthor(message.author.tag, message.author.displayAvatarURL())
-          .setThumbnail(bot.user.displayAvatarURL({ format: "png", dynamic: true }) + "?size=")
-          .setTitle("invite")
-          .setDescription("invite saya!")
-          .addFields(
-            {
-              name: "link invite:",
-              value: "[click here!](https://bit.ly/Anime-bot)",
-              inline: true
-            },
-            {
-              name: "link official server discord Anime:",
-              value: "[join](https://discord.gg/SY4u37zqEt)",
-              inline: true
-            },
-            {
-              name: "subcribe Channel Not A Developer!:",
-              value: "[SUBCRIBE](https://www.youtube.com/watch?v=j1e7QSReo5Y)",
-              inline: true
-            },
-            {
-              name: "Join projek glitch!",
-              value: "[JOIN PROJEK](https://discord.gg/NekoPoi)",
-              inline: true
-            },
-            {
-              name: "liat muka asli ||RAHASIA||",
-              value: "[lihat](https://discord.gg/NekoPoi)",
-              inline: true
-            }
-          )
-          .setTimestamp()
-          .setFooter("Script by: BlueWolf#0371\n");
-        ms.edit("berhasil membuat link", embed);
-      }, 4000);
-    } catch (error) {
-      return message.channel.send(error.message);
-    }
-  }*/
   try {
+      
     const commandFile = require(`./commands/owner/${command}.js`);
     commandFile.run(bot, message, args, Util);
   } catch(error) {
