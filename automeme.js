@@ -23,7 +23,7 @@ module.exports = () => {
             "furry"
            ];
           
-         const { body } = await fetch.get(`https://imgur.com/r/${subreddits[Math.floor(Math.random() * subreddits.length)]}/hot.json`);
+         const { body } = fetch.get(`https://imgur.com/r/${subreddits[Math.floor(Math.random() * subreddits.length)]}/hot.json`);
          const { data } = body;
                const meme = data[Math.floor(Math.random() * data.length)];
           
