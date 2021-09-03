@@ -4,7 +4,7 @@ module.exports = {
   name: "help",
   aliases: ["h"],
   run: async(bot, message, args) => {
-    let commands = require("../../handler/module.js");
+    let commands = bot.commands.array();
 
     let helpEmbed = new MessageEmbed()
       .setTitle("list command")
