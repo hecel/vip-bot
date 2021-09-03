@@ -40,14 +40,14 @@ module.exports = () => {
              //.setFooter("Script by: 𝓦𝓞𝓵𝓕𝓡𝓐𝓓#0371\n");
              webhook.send(embed);
            } catch (err) {
-            //  let embed = new MessageEmbed()
-            //  .setTitle(":x: Error!")
-            //  .setDescription(err)
-            //  .setAuthor(message.author.tag, message.author.displayAvatarURL())
-            //  .setColor("GOLD")
-            //  .setTimestamp()
-            //  .setFooter("Script by: 𝓦𝓞𝓵𝓕𝓡𝓐𝓓#0371");
-            //  message.channel.send(embed);
+             let embed = new MessageEmbed()
+             .setTitle(":x: Error!")
+             .setDescription(err)
+             .setAuthor(message.author.tag, message.author.displayAvatarURL())
+             .setColor("GOLD")
+             .setTimestamp()
+             //.setFooter("Script by: 𝓦𝓞𝓵𝓕𝓡𝓐𝓓#0371");
+             console.log(embed);
            }
     }, ms("5s"));
 }
