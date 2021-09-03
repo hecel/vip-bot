@@ -78,7 +78,7 @@ bot.giveaways = new GiveawaysManager(bot, {
   reaction: "🎉"
 });
 bot.antijoins = new Collection();
-bot.antiinvites = new Collection();
+//bot.antiinvites = new Collection();
 ["module"].forEach(handler => {
     require(`./handler/${handler}`)(bot);
 });
