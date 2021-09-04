@@ -1,6 +1,4 @@
-const bot = require("../index").bot;
-
-bot.on("guildMemberRemove", member => {
+module.exports = (bot, member) => {
     let guild = member.guild;
     let server = guild.name;
     let total = guild.memberCount;
@@ -13,4 +11,4 @@ bot.on("guildMemberRemove", member => {
       .setTimestamp()
       .setFooter("script by: BlueWolf#0371");
     channel.send(embed);
-  });
+  };

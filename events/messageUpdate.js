@@ -1,6 +1,4 @@
-const bot = require("../index").bot;
-
-bot.on("messageUpdate", async(oldMessage, message) => {
+module.exports = ()=> {
     bot.edits.set(message.channel.id, {
         content: message.content,
         author: message.author,
@@ -19,4 +17,4 @@ bot.on("messageUpdate", async(oldMessage, message) => {
     .setTimestamp();
     return channel.send(embed);
   }
-});
+};

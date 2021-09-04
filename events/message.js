@@ -1,8 +1,4 @@
-const bot = require("../index").bot;
-const prefix = require("../util/main");
-
-
-bot.on("message", async(message) => {
+module.exports = (bot, message) => {
     if (message.author.bot || message.channel.type === "dm") return;
     if (!message.content.startsWith(prefix)) return;
     if (message.content === `<@${bot.user.id}>` || message.content === `<@!${bot.user.id}>`) {
@@ -62,4 +58,4 @@ bot.on("message", async(message) => {
   //   } catch(error) {
       
   //   }
-  });
+  };

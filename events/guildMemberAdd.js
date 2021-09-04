@@ -1,6 +1,4 @@
-const bot = require("../index").bot;
-
-bot.on("guildMemberAdd", async(member, message) => {
+module.exports = (bot, member) => {
     const getCollection = bot.antijoins.has(member.guild.id);
     if(!getCollection) return;
     // if(!bot.antijoins.includes(member.user)) {
@@ -30,4 +28,4 @@ bot.on("guildMemberAdd", async(member, message) => {
       .setTimestamp()
       .setFooter("script by: BuleWolf#0371\n");
     channel.send(embed).then(member.roles.add(role.id));
-  });
+  };

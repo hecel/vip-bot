@@ -1,6 +1,4 @@
-const bot = require("../index").bot;
-
-bot.on("messageDelete", function(message, channel) {
+module.exports = (Discord, bot, message) => {
     bot.snipes.set(message.channel.id, {
         content: message.content,
         author: message.author,
@@ -13,11 +11,11 @@ bot.on("messageDelete", function(message, channel) {
 
     if(!channel) return;
 
-    const embed = new MessageEmbed()
+    const embed = new Discord.MessageEmbed()
     .setTitle("Ghost ping")
     .setColor("RED")
     .setDescription(`${message.author} ghost pings: ${message.mentions.users.first()}\nmessage ini dari: ${message.guild}`)
     .setTimestamp();
     return channel.send(embed);
   }
-});
+};

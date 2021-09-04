@@ -1,6 +1,4 @@
-const bot = require("../index").bot;
-
-bot.on("ready", async() => {
+module.exports = () => {
     console.log("bot sudah online");
     
     bot.user.setStatus("dnd");
@@ -38,4 +36,4 @@ bot.on("ready", async() => {
         });
       }
       setInterval(randomStatus, 8000);
-});
+};

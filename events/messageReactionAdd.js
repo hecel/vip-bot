@@ -1,6 +1,4 @@
-const bot = require("../index").bot;
-
-bot.on("messageReactionAdd", async(reaction, user) => {
+module.exports = () => {
     const starboard = async() => {
         const SBChannel = bot.channels.cache.find(c => c.name.toLowerCase() === "starboard");
         const msgs = await SBChannel.messages.fetch({ limit: 100});
@@ -24,4 +22,4 @@ bot.on("messageReactionAdd", async(reaction, user) => {
             await reaction.message.fetch();
         } else starboard();
     }
-});
+};

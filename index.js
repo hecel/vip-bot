@@ -26,6 +26,7 @@ bot.snipes = new Map();
 bot.edits = new Map();
 bot.commands = new Collection();
 bot.aliases = new Collection();
+bot.events = new Collection();
 bot.premiums = new Collection();
 bot.hatebin = new Map();
 bot.developers = developer;
@@ -37,11 +38,11 @@ bot.giveaways = new GiveawaysManager(bot, {
 });
 bot.antijoins = new Collection();
 //bot.antiinvites = new Collection();
-["module"].forEach(handler => {
+["module", "event"].forEach(handler => {
     require(`./handler/${handler}`)(bot);
 });
 ["ready", "messageUpdate", "messageDelete", "message", "guildMemberRemove", "guildMemberAdd", "guildCreate", "messageReactionAdd"].forEach(event => {
-    require(`./events/${event}`)(bot);
+    require(`./events/${event}`)(bot, Discord);
 });
 
 module.exports.bot = bot;
