@@ -6,7 +6,7 @@ table.setHeading('Event', 'Load status');
 
 module.exports = (bot, Discord) => {
   
-    readdirSync(`${process.cwd()}events/`).forEach(dir => {
+    readdirSync(`${process.cwd()}/events/`).forEach(dir => {
       
         const commands = readdirSync(`${process.cwd()}/events/`).filter(file => file.endsWith(".js"));
         
