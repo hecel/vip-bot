@@ -12,7 +12,8 @@ module.exports = (bot) => {
         
         for (let file of commands) {
             let pull = require(`${process.cwd()}/commands/${dir}/${file}`);
-    
+            console.log(`File ${file} was loaded`);
+
             if (pull.name) {
                 bot.commands.set(pull.name, pull);
                 bot.premiums.set(pull.name, pull);
