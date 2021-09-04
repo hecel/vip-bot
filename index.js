@@ -188,9 +188,9 @@ bot.on("ready", () => {
       //`mau kirim masukan? | ${PREFIX}request`,
       //`mau ngerjain tugas sambil main discord? | ${PREFIX}google | ${PREFIX}brainly`,
       `Time: ${timezone().tz("Asia/Jakarta").format("? HH:mm [WIB]") + " "}`,
-      `${bot.users.cache.size} ??User!`,
-      `${bot.guilds.cache.size} ??Server!`,
-      `${bot.channels.cache.size} ??Channel!`,
+      `${bot.users.cache.size} User!`,
+      `${bot.guilds.cache.size} Server!`,
+      `${bot.channels.cache.size} Channel!`,
       //`total shard: ${bot.shard / 1000}%`
     ];
     bot.user.setActivity({
