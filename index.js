@@ -32,14 +32,6 @@ app.get("/", (req, res) => {
 app.listen(process.env.PORT);
 
 bot.on("warn", console.warn);
-bot.on("shard", () => {
-  let shard = new Discord.ShardingManager("./index.js").shards.size;
-  let channel = bot.channels.cache.get("808454208760053822");
-
-  if (!channel) return;
-
-  channel.send(shard);
-});
 bot.on("error", console.error);
 bot.on("ready", () => {
   console.log("bot sudah online");
@@ -188,18 +180,18 @@ bot.on("guildMemberAdd", async(member, message) => {
 bot.on("ready", () => {
   function randomStatus() {
     let s = [
-      `??| My prefix ${PREFIX}`,
-      `??| creator: ${developer}`,
-      //`??| invite saya: ${PREFIX}invite`,
-      //`??| found a bug? | ${PREFIX}report-bug`,
-      //"??| Rilis Versi 4.2.6",
-      //`??| mau kirim masukan? | ${PREFIX}request`,
-      //`??| mau ngerjain tugas sambil main discord? | ${PREFIX}google | ${PREFIX}brainly`,
-      `??| Time: ${timezone().tz("Asia/Jakarta").format("? HH:mm [WIB]") + " "}`,
-      `??| ${bot.users.cache.size} ??User!`,
-      `??| ${bot.guilds.cache.size} ??Server!`,
-      `??| ${bot.channels.cache.size} ??Channel!`,
-      `??| total shard: ${bot.shard / 1000}%`
+      `My prefix ${PREFIX}`,
+      `creator: ${developer}`,
+      //`invite saya: ${PREFIX}invite`,
+      //`found a bug? | ${PREFIX}report-bug`,
+      //"Rilis Versi 4.2.6",
+      //`mau kirim masukan? | ${PREFIX}request`,
+      //`mau ngerjain tugas sambil main discord? | ${PREFIX}google | ${PREFIX}brainly`,
+      `Time: ${timezone().tz("Asia/Jakarta").format("? HH:mm [WIB]") + " "}`,
+      `${bot.users.cache.size} ??User!`,
+      `${bot.guilds.cache.size} ??Server!`,
+      `${bot.channels.cache.size} ??Channel!`,
+      //`total shard: ${bot.shard / 1000}%`
     ];
     bot.user.setActivity({
       url: "https://www.youtube.com/watch?v=iydD0OxoaH0",
