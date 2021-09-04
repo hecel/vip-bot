@@ -274,6 +274,23 @@ bot.on("message", async(message) => {
   if(cmd) {
    cmd.run(bot, message, args);
   } else return;
+  //sistem cooldown
+  let { cooldown } = require("./cooldown.js");
+  let cmdcooldown = cooldown;
+
+  if (!message.content.startsWith(prefix)) return;
+  
+  if (cmdcooldown.has(message.author.id)) {
+    await message.delete();
+    return message.channel.send("Hai gunakan bot ini lagi dalam 4 detik!").then(m => {
+        m.delete({ timeout: 4000 });
+      });
+  }
+
+  cmdcooldown.add(message.author.id);
+  setTimeout(() => {
+    cmdcooldown.delete(message.author.id);
+  }, 4000);
   console.log(`${message.author.tag} menggunakan command ${prefix}${command}`, `message ini dari: ${message.guild.name}`);
   try {
     const commandFile = require(`./commands/owner/${command}.js`);
