@@ -26,10 +26,9 @@ let PREFIX = prefix;
 
 app.get("/", (req, res) => {
   console.log("ping");
-  res.sendStatus(200);
+  res.sendStatus(300);
 });
-
-app.listen(process.env.PORT);
+app.listen(3000);
 
 bot.on("warn", console.warn);
 bot.on("error", console.error);
