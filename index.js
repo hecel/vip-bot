@@ -13,11 +13,6 @@ const bot = new Client({ partials: ["MESSAGE", "REACTION"] }); //({ disableMenti
 const superagent = require("superagent");
 const express = require("express");
 const app = express();
-const http = require("http");
-const ms = require("ms");
-//const automeme = require("./automeme");
-//const timeSpan = ms("2 days");
-//require("discord-buttons")(bot);
 
 const { prefix, TOKEN, developer } = require("./util/main");
 const { get } = require("node-superfetch");
