@@ -27,9 +27,9 @@ module.exports = (bot) => {
             //if (pull.premiums && Array.isArray(pull.premiums)) pull.premiums.forEach(premium => bot.premiums.set(premium, pull.name));
         }
     });
-    let channel = bot.channels.cache.get("883668517679927336");
+    // let channel = bot.channels.cache.get("883668517679927336");
 
-    if(!channel) return;
+    // if(!channel) return;
 
-    channel.send(table.toString());
+    console.log(table.toString());
 }
