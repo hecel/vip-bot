@@ -3,7 +3,7 @@ const antijoin = new Collection();
 
 module.exports = {
     name: "antijoin",
-    aliases: ["antjn"],
+    aliases: ["anti"],
     run: async(bot, message, args) => {
         if(!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send("You don't have permission to usage this command!");
         
