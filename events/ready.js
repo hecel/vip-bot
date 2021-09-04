@@ -1,6 +1,6 @@
 const bot = require("../index").bot;
 
-bot.on("ready", () => {
+bot.on("ready", async() => {
     console.log("bot sudah online");
     
     bot.user.setStatus("dnd");
@@ -15,7 +15,7 @@ bot.on("ready", () => {
         waktu2.setName(`${timezone().tz("Asia/Jayapura").format("⌚ HH:mm [WITA]") + " "}`);
     }
     setInterval(time, 10000);
-    
+
     function randomStatus() {
         let s = [
           `🎥| My prefix ${PREFIX}`,

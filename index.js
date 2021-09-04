@@ -19,10 +19,8 @@ const ms = require("ms");
 //const timeSpan = ms("2 days");
 //require("discord-buttons")(bot);
 
-const { prefix, TOKEN, developer } = require("./util/main");
+const { TOKEN, developer } = require("./util/main");
 const { get } = require("node-superfetch");
-
-let PREFIX = prefix;
 
 bot.snipes = new Map();
 bot.edits = new Map();
@@ -42,11 +40,10 @@ bot.antijoins = new Collection();
 ["module"].forEach(handler => {
     require(`./handler/${handler}`)(bot);
 });
-["ready", "messageUpdate", "messageDelete", "message", "guildMemberRemove", "guildMemberAdd", "guildCreate"].forEach(event => {
+["ready", "messageUpdate", "messageDelete", "message", "guildMemberRemove", "guildMemberAdd", "guildCreate", "messageReactionAdd"].forEach(event => {
     require(`./events/${event}`)(bot);
 });
 
 module.exports.bot = bot;
-module.exports.prefix = PREFIX;
 
 bot.login(TOKEN);

@@ -1,5 +1,5 @@
 const bot = require("../index").bot;
-const prefix = require("../index").prefix;
+const prefix = require("../util/main");
 
 
 bot.on("message", async(message) => {
