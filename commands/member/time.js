@@ -1,4 +1,5 @@
 const Discord = require("discord.js");
+const timezone = require("moment-timezone");
 
 module.exports = {
     name: "time",
