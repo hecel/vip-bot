@@ -1,18 +1,21 @@
 const { readdirSync } = require("fs");
 const ascii = require("ascii-table");
 
-let table = new ascii('Commands');
-table.setHeading('Command', 'Load status');
+let table = new ascii('Event');
+table.setHeading('Event', 'Load status');
 
 module.exports = (bot, Discord) => {
   
-    readdirSync(`${process.cwd()}/commands/`).forEach(dir => {
+    readdirSync(`${process.cwd()}events/`).forEach(dir => {
       
-        const commands = readdirSync(`${process.cwd()}/commands/${dir}/`).filter(file => file.endsWith(".js"));
+        const commands = readdirSync(`${process.cwd()}/events/`).filter(file => file.endsWith(".js"));
         
         for (let file of commands) {
-            let pull = require(`${process.cwd()}/commands/${dir}/${file}`);
+            let pull = require(`${process.cwd()}/events/${file}`);
+            let name = pull.split(".")[0];
             console.log(`File ${file} was loaded`);
+
+            bot.on(name, pull.bind(null, bot, Discord));
 
             if (pull.name) {
                 bot.commands.set(pull.name, pull);
@@ -30,6 +33,5 @@ module.exports = (bot, Discord) => {
     // let channel = bot.channels.cache.get("883668517679927336");
 
     // if(!channel) return;
-
     console.log(table.toString());
 }
