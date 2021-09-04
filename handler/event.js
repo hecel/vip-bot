@@ -12,10 +12,9 @@ module.exports = (bot, Discord) => {
         
         for (let file of commands) {
             let pull = require(`${process.cwd()}/events/${file}`);
-            let name = pull.split(".")[0];
             console.log(`File ${file} was loaded`);
 
-            bot.on(name, pull.bind(null, bot, Discord));
+            bot.on(pull.bind(null, bot, Discord));
 
             if (pull.name) {
                 bot.commands.set(pull.name, pull);
