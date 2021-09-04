@@ -8,10 +8,10 @@ module.exports = (bot) => {
   
     readdirSync(`${process.cwd()}/events/`).forEach(dir => {
       
-        const commands = readdirSync(`${process.cwd()}/events/${dir}/`).filter(file => file.endsWith(".js"));
+        const commands = readdirSync(`${process.cwd()}/events/`).filter(file => file.endsWith(".js"));
         
         for (let file of commands) {
-            let pull = require(`${process.cwd()}/events/${dir}/${file}`);
+            let pull = require(`${process.cwd()}/events/${file}`);
             console.log(`File ${file} was loaded`);
 
             if (pull.name) {
